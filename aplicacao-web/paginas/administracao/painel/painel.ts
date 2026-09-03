@@ -16,24 +16,27 @@ function renderizarIndicadores(): void {
   const manutencoes = listarManutencoes();
   const necessidades = listarNecessidades();
   const hoje = new Date();
-  const valores: Array<[string, number]> = [
-    ['Membros ativos', usuarios.filter((usuario) => usuario.situacao === 'ativo').length],
-    ['Jovens ativos', usuarios.filter((usuario) => usuario.situacao === 'ativo' && usuario.perfil === 'jovem_beneficiario').length],
-    ['Materiais cadastrados', materiais.filter((material) => material.estado !== 'baixado').length],
-    ['Unidades disponíveis', materiais.reduce((total, material) => total + calcularQuantidadeDisponivel(material.id), 0)],
-    ['Atividades futuras', atividades.filter((atividade) => new Date(atividade.dataSaida) >= hoje && !['concluida', 'cancelada'].includes(atividade.situacao)).length],
-    ['Materiais em manutenção', manutencoes.filter((manutencao) => ['pendente', 'em_andamento'].includes(manutencao.situacao)).length],
-    ['Necessidades abertas', necessidades.filter((necessidade) => !['recebida', 'cancelada'].includes(necessidade.situacao)).length]
+  const valores: Array<[string, number, string]> = [
+    ['Membros ativos', usuarios.filter((usuario) => usuario.situacao === 'ativo').length, '<circle cx="12" cy="8" r="3.5"/><path d="M5 20c.7-4.2 3.1-6.3 7-6.3s6.3 2.1 7 6.3"/>'],
+    ['Materiais cadastrados', materiais.filter((material) => material.estado !== 'baixado').length, '<path d="m4 7 8-4 8 4-8 4-8-4Zm0 0v10l8 4 8-4V7M12 11v10"/>'],
+    ['Unidades disponíveis', materiais.reduce((total, material) => total + calcularQuantidadeDisponivel(material.id), 0), '<path d="M4 5h16v14H4zM4 10h16M8 15l2 2 5-5"/>'],
+    ['Atividades futuras', atividades.filter((atividade) => new Date(atividade.dataSaida) >= hoje && !['concluida', 'cancelada'].includes(atividade.situacao)).length, '<path d="M5 5h14v15H5zM8 3v4m8-4v4M5 10h14m-10 4h2m2 0h2"/>'],
+    ['Materiais em manutenção', manutencoes.filter((manutencao) => ['pendente', 'em_andamento'].includes(manutencao.situacao)).length, '<path d="M14.5 6.5a4 4 0 0 0-5-5l2.2 2.2-2.8 2.8-2.2-2.2a4 4 0 0 0 5 5L20 17.6 17.6 20l-8.3-8.3"/>'],
+    ['Necessidades abertas', necessidades.filter((necessidade) => !['recebida', 'cancelada'].includes(necessidade.situacao)).length, '<path d="M3 4h2l2 11h10l3-8H6m3 12a1 1 0 1 0 0 .1m8-.1a1 1 0 1 0 0 .1M12 9v4m-2-2h4"/>']
   ];
   const area = document.querySelector<HTMLElement>('#indicadores');
-  valores.forEach(([rotulo, valor]) => {
+  valores.forEach(([rotulo, valor, desenhoIcone]) => {
     const cartao = document.createElement('article');
     cartao.className = 'painel-administrativo__indicador';
+    const icone = document.createElement('span');
+    icone.className = 'painel-administrativo__indicador-icone';
+    icone.setAttribute('aria-hidden', 'true');
+    icone.innerHTML = `<svg viewBox="0 0 24 24">${desenhoIcone}</svg>`;
     const numero = document.createElement('strong');
     numero.textContent = String(valor);
     const texto = document.createElement('span');
     texto.textContent = rotulo;
-    cartao.append(numero, texto);
+    cartao.append(icone, numero, texto);
     area?.append(cartao);
   });
 }
