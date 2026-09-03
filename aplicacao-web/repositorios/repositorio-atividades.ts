@@ -39,3 +39,12 @@ export function salvarItensDaAtividade(atividadeId: string, itens: ItemAtividade
   const outrosItens = listarItensAtividades().filter((item) => item.atividadeId !== atividadeId);
   escreverArmazenamento(CHAVE_ITENS_ATIVIDADES, [...outrosItens, ...itens]);
 }
+
+export function excluirAtividade(id: string): void {
+  escreverArmazenamento(CHAVE_ATIVIDADES, listarAtividades().filter((atividade) => atividade.id !== id));
+  escreverArmazenamento(CHAVE_ITENS_ATIVIDADES, listarItensAtividades().filter((item) => item.atividadeId !== id));
+}
+
+export function excluirItensDoMaterial(materialId: string): void {
+  escreverArmazenamento(CHAVE_ITENS_ATIVIDADES, listarItensAtividades().filter((item) => item.materialId !== materialId));
+}

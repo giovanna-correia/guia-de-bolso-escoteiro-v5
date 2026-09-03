@@ -28,6 +28,7 @@ const paginas = [
   'paginas/administracao/atividade-detalhes/index.html',
   'paginas/administracao/atividade-devolucao/index.html',
   'paginas/administracao/manutencoes-listagem/index.html',
+  'paginas/administracao/manutencao-formulario/index.html',
   'paginas/administracao/manutencao-detalhes/index.html',
   'paginas/administracao/necessidades-listagem/index.html',
   'paginas/administracao/necessidade-formulario/index.html',

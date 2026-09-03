@@ -14,3 +14,11 @@ export function adicionarMovimentacao(movimentacao: Movimentacao): void {
 export function listarMovimentacoesPorMaterial(materialId: string): Movimentacao[] {
   return listarMovimentacoes().filter((movimentacao) => movimentacao.materialId === materialId);
 }
+
+export function excluirMovimentacoesDoMaterial(materialId: string): void {
+  escreverArmazenamento(CHAVE_MOVIMENTACOES, listarMovimentacoes().filter((movimentacao) => movimentacao.materialId !== materialId));
+}
+
+export function excluirMovimentacoesDaAtividade(atividadeId: string): void {
+  escreverArmazenamento(CHAVE_MOVIMENTACOES, listarMovimentacoes().filter((movimentacao) => movimentacao.atividadeId !== atividadeId));
+}

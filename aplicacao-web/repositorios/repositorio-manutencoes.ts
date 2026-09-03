@@ -23,3 +23,15 @@ export function atualizarManutencao(manutencaoAtualizada: Manutencao): boolean {
   escreverArmazenamento(CHAVE_MANUTENCOES, manutencoes);
   return true;
 }
+
+export function excluirManutencao(id: string): void {
+  escreverArmazenamento(CHAVE_MANUTENCOES, listarManutencoes().filter((manutencao) => manutencao.id !== id));
+}
+
+export function excluirManutencoesDoMaterial(materialId: string): void {
+  escreverArmazenamento(CHAVE_MANUTENCOES, listarManutencoes().filter((manutencao) => manutencao.materialId !== materialId));
+}
+
+export function desvincularManutencoesDaAtividade(atividadeId: string): void {
+  escreverArmazenamento(CHAVE_MANUTENCOES, listarManutencoes().map((manutencao) => manutencao.atividadeId === atividadeId ? { ...manutencao, atividadeId: null } : manutencao));
+}

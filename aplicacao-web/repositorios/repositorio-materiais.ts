@@ -29,3 +29,7 @@ export function baixarMaterial(id: string): boolean {
   if (!material) return false;
   return atualizarMaterial({ ...material, estado: 'baixado' });
 }
+
+export function excluirMaterial(id: string): void {
+  escreverArmazenamento(CHAVE_MATERIAIS, listarMateriais().filter((material) => material.id !== id));
+}

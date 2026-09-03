@@ -23,3 +23,11 @@ export function atualizarNecessidade(necessidadeAtualizada: NecessidadeCompra): 
   escreverArmazenamento(CHAVE_NECESSIDADES, necessidades);
   return true;
 }
+
+export function excluirNecessidade(id: string): void {
+  escreverArmazenamento(CHAVE_NECESSIDADES, listarNecessidades().filter((necessidade) => necessidade.id !== id));
+}
+
+export function desvincularNecessidadesDoMaterial(materialId: string): void {
+  escreverArmazenamento(CHAVE_NECESSIDADES, listarNecessidades().map((necessidade) => necessidade.materialId === materialId ? { ...necessidade, materialId: null } : necessidade));
+}
