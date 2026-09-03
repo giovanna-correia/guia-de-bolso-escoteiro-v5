@@ -5,19 +5,47 @@ body { min-height: 100dvh; margin: 0; color: var(--cor-texto-principal); backgro
 .bussola__cabecalho { max-width: 42rem; margin: 0 auto 1.3rem; }
 .bussola__etiqueta { margin: 0; color: var(--cor-primaria); font-size: 0.75rem; font-weight: 700; letter-spacing: 0.1em; text-align: center; }
 .bussola__titulo { margin: 0.4rem 0 1rem; color: var(--cor-primaria-escura); font: 700 2.4rem/1 var(--fonte-titulo); text-align: center; }
-.bussola__introducao { margin: 0; line-height: 1.65; }
-.bussola__painel { display: grid; justify-items: center; gap: 1rem; padding: 1.25rem; background: var(--cor-superficie); border: 1px solid var(--cor-borda); border-radius: var(--raio-grande); box-shadow: var(--sombra-suave); }
-.bussola__mostrador { position: relative; width: min(75vw, 280px); aspect-ratio: 1; display: grid; place-items: center; color: var(--cor-primaria-escura); background: radial-gradient(circle, var(--cor-superficie) 0 48%, var(--cor-terciaria) 49% 100%); border: 4px solid var(--cor-primaria); border-radius: 50%; font-weight: 700; }
-.bussola__norte, .bussola__leste, .bussola__sul, .bussola__oeste { position: absolute; }
-.bussola__norte { top: 0.8rem; color: var(--cor-perigo); }.bussola__leste { right: 1rem; }.bussola__sul { bottom: 0.8rem; }.bussola__oeste { left: 1rem; }
-.bussola__agulha { color: var(--cor-perigo); font-size: 5.5rem; line-height: 1; transform-origin: 50% 57%; transition: transform 180ms linear; }
-.bussola__resultado { display: grid; justify-items: center; }
-.bussola__resultado strong { color: var(--cor-primaria-escura); font: 700 2.2rem var(--fonte-titulo); }
-.bussola__resultado span { color: var(--cor-texto-secundario); font-size: 0.85rem; font-weight: 700; }
-.bussola__aviso { margin: 0; color: var(--cor-texto-secundario); line-height: 1.5; text-align: center; }
-.bussola__acoes { width: 100%; display: grid; gap: 0.6rem; }
-.bussola__botao { min-height: 46px; padding: 0.7rem 1rem; color: var(--cor-superficie); background: var(--cor-primaria); border: 1px solid var(--cor-primaria); border-radius: var(--raio-pequeno); font: 700 0.85rem var(--fonte-corpo); cursor: pointer; }
-.bussola__botao--secundario { color: var(--cor-primaria); background: var(--cor-superficie); }
-.bussola__botao:disabled { cursor: not-allowed; opacity: 0.45; }
+.bussola__introducao { margin: 0; color: var(--cor-texto-secundario); line-height: 1.65; }
+.bussola__painel { display: grid; justify-items: center; gap: 1rem; padding: 1.3rem; background: linear-gradient(180deg, rgba(255,255,255,.96), rgba(249,250,246,.96)); border: 1px solid var(--cor-borda); border-radius: 22px; box-shadow: var(--sombra-suave); }
+.bussola__mostrador {
+  position: relative; isolation: isolate; width: min(78vw, 300px); aspect-ratio: 1; display: grid; place-items: center;
+  color: var(--cor-primaria-escura);
+  background:
+    radial-gradient(circle at 50% 48%, #fff 0 43%, #f0f3e9 44% 66%, #e4eadc 67% 100%);
+  border: 6px solid #526642; border-radius: 50%;
+  box-shadow: inset 0 0 0 5px rgba(255,255,255,.85), inset 0 0 0 7px rgba(86,105,68,.18), 0 12px 28px rgba(52,68,42,.13);
+  font-weight: 800;
+}
+.bussola__mostrador::before {
+  position: absolute; z-index: -1; inset: 12px; border-radius: 50%;
+  background: repeating-conic-gradient(from -1deg, rgba(52,68,42,.52) 0 1.1deg, transparent 1.1deg 10deg);
+  -webkit-mask: radial-gradient(circle, transparent 0 77%, #000 78% 100%);
+  mask: radial-gradient(circle, transparent 0 77%, #000 78% 100%);
+  content: "";
+}
+.bussola__mostrador::after {
+  position: absolute; z-index: 0; width: 56%; aspect-ratio: 1; background: rgba(255,255,255,.62); border: 1px solid rgba(86,105,68,.1); border-radius: 50%; content: "";
+}
+.bussola__norte, .bussola__leste, .bussola__sul, .bussola__oeste { position: absolute; z-index: 3; display: grid; min-width: 30px; min-height: 30px; place-items: center; font-size: .82rem; }
+.bussola__norte { top: .8rem; color: #9d4138; font-size: 1rem; }.bussola__leste { right: .78rem; }.bussola__sul { bottom: .8rem; }.bussola__oeste { left: .78rem; }
+.bussola__agulha { position: relative; z-index: 4; width: 30px; height: 148px; display: block; transform-origin: 50% 50%; transition: transform 180ms linear; filter: drop-shadow(0 5px 5px rgba(42,52,36,.22)); }
+.bussola__agulha-norte, .bussola__agulha-sul { position: absolute; left: 50%; width: 0; height: 0; transform: translateX(-50%); }
+.bussola__agulha-norte {
+  top: 0; border-right: 13px solid transparent; border-bottom: 70px solid #b34d42; border-left: 13px solid transparent;
+}
+.bussola__agulha-norte::after { position: absolute; top: 18px; left: -3px; width: 6px; height: 38px; background: rgba(255,255,255,.35); border-radius: 999px; content: ""; }
+.bussola__agulha-sul {
+  bottom: 0; border-top: 70px solid #e7ddc7; border-right: 13px solid transparent; border-left: 13px solid transparent;
+}
+.bussola__agulha-centro { position: absolute; z-index: 5; top: 50%; left: 50%; width: 22px; height: 22px; background: #f7f5ee; border: 5px solid #4d603e; border-radius: 50%; box-shadow: 0 2px 6px rgba(42,52,36,.22); transform: translate(-50%, -50%); }
+.bussola__resultado { display: grid; justify-items: center; padding-top: .2rem; }
+.bussola__resultado strong { color: var(--cor-primaria-escura); font: 700 2.35rem var(--fonte-titulo); letter-spacing: -.03em; }
+.bussola__resultado span { margin-top: -.15rem; color: var(--cor-texto-secundario); font-size: .82rem; font-weight: 750; }
+.bussola__aviso { max-width: 34rem; margin: 0; padding: .7rem .9rem; color: var(--cor-texto-secundario); background: var(--cor-terciaria); border-radius: 12px; font-size: .78rem; line-height: 1.5; text-align: center; }
+.bussola__acoes { width: 100%; display: grid; gap: .6rem; }
+.bussola__botao { min-height: 48px; padding: .7rem 1rem; color: var(--cor-superficie); background: var(--cor-primaria); border: 1px solid var(--cor-primaria); border-radius: 11px; font: 700 .85rem var(--fonte-corpo); cursor: pointer; }
+.bussola__botao--secundario { color: var(--cor-primaria); background: var(--cor-superficie); box-shadow: none; }
+.bussola__botao--secundario:hover:not(:disabled) { color: var(--cor-superficie); }
+.bussola__botao:disabled { cursor: not-allowed; opacity: .45; }
 .bussola__botao:focus-visible { outline: 3px solid var(--cor-informacao); outline-offset: 2px; }
-@media (min-width: 540px) { .bussola__acoes { grid-template-columns: 1fr 1fr; } }
+@media (min-width: 540px) { .bussola__painel { padding: 1.75rem; } .bussola__acoes { grid-template-columns: 1fr 1fr; } }

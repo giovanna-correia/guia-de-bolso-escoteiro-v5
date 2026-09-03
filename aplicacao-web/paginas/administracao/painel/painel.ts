@@ -83,7 +83,13 @@ function renderizarMovimentacoes(): void {
 }
 
 function inicializarPagina(): void {
-  if (!inicializarPaginaAdministrativa('Painel Geral')) return;
+  const usuario = inicializarPaginaAdministrativa('Painel Geral');
+  if (!usuario) return;
+  const saudacao = document.querySelector<HTMLElement>('#saudacao-painel');
+  if (saudacao) {
+    const primeiroNome = usuario.nomeCompleto.trim().split(/\s+/)[0] ?? '';
+    saudacao.textContent = primeiroNome ? `Olá, ${primeiroNome}. Seu grupo em um só lugar.` : 'Seu grupo em um só lugar.';
+  }
   renderizarIndicadores();
   renderizarAlertas();
   renderizarMovimentacoes();

@@ -46,6 +46,10 @@ export function montarCabecalhoJovem(tituloPagina: string, usuario: Usuario): vo
     link.className = 'cabecalho-jovem__link';
     link.href = `${raiz}${caminho}`;
     link.textContent = rotulo;
+    if (window.location.pathname.endsWith(caminho)) {
+      link.classList.add('cabecalho-jovem__link--ativo');
+      link.setAttribute('aria-current', 'page');
+    }
     navegacao.append(link);
   });
   if (usuario.perfil === 'escotista') {

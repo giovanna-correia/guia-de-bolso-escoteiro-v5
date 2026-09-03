@@ -1,0 +1,373 @@
+/* Refinamentos visuais globais — sem alteração de lógica funcional. */
+:root {
+  --cor-papel: #fbfaf5;
+  --cor-papel-quente: #f4f0e5;
+  --cor-superficie-suave: #f8faf5;
+  --cor-primaria-clara: #dfe8d8;
+  --cor-primaria-luminosa: #71865d;
+  --cor-acento-terra: #a77843;
+  --cor-acento-ouro: #c79a4a;
+  --cor-borda-suave: color-mix(in srgb, var(--cor-primaria) 18%, #fff);
+  --sombra-xs: 0 1px 2px rgba(31, 44, 26, 0.05);
+  --sombra-card: 0 10px 30px rgba(42, 58, 35, 0.075), 0 2px 6px rgba(42, 58, 35, 0.045);
+  --sombra-elevada: 0 18px 48px rgba(36, 51, 30, 0.13), 0 4px 12px rgba(36, 51, 30, 0.07);
+  --foco: 0 0 0 3px color-mix(in srgb, var(--cor-primaria) 22%, transparent);
+  --transicao-rapida: 160ms ease;
+  --transicao-padrao: 220ms cubic-bezier(.2, .7, .2, 1);
+}
+
+html { scroll-behavior: smooth; }
+body {
+  background:
+    radial-gradient(circle at 8% -5%, rgba(115, 137, 93, .13), transparent 28rem),
+    radial-gradient(circle at 105% 24%, rgba(199, 154, 74, .08), transparent 24rem),
+    linear-gradient(180deg, #f7f8f3 0%, #f2f5ee 52%, #f7f6f0 100%);
+  background-attachment: fixed;
+}
+
+body::before {
+  position: fixed;
+  z-index: -1;
+  inset: 0;
+  pointer-events: none;
+  opacity: .2;
+  background-image: radial-gradient(circle, rgba(73, 93, 59, .22) 0.6px, transparent 0.8px);
+  background-size: 18px 18px;
+  content: "";
+  mask-image: linear-gradient(to bottom, #000, transparent 55%);
+}
+
+button, a, input, select, textarea { -webkit-tap-highlight-color: transparent; }
+a, button { transition: color var(--transicao-rapida), background-color var(--transicao-rapida), border-color var(--transicao-rapida), box-shadow var(--transicao-padrao), transform var(--transicao-padrao), opacity var(--transicao-rapida); }
+button { font-family: inherit; }
+
+input, select, textarea {
+  accent-color: var(--cor-primaria);
+  transition: border-color var(--transicao-rapida), box-shadow var(--transicao-rapida), background-color var(--transicao-rapida);
+}
+input:hover, select:hover, textarea:hover { border-color: color-mix(in srgb, var(--cor-primaria) 42%, var(--cor-borda)); }
+input:focus, select:focus, textarea:focus {
+  border-color: var(--cor-primaria) !important;
+  box-shadow: var(--foco);
+  outline: none !important;
+}
+input::placeholder, textarea::placeholder { color: #929b90; }
+
+/* Cabeçalhos de página e hierarquia editorial */
+[class$="__etiqueta"] { text-transform: uppercase; }
+:is(
+  .painel-administrativo__titulo,
+  .atividades-listagem__titulo,
+  .atividade-formulario__titulo,
+  .atividade-detalhes__titulo,
+  .atividade-devolucao__titulo,
+  .materiais-listagem__titulo,
+  .material-formulario__titulo,
+  .material-detalhes__titulo,
+  .membros-listagem__titulo,
+  .membro-formulario__titulo,
+  .membro-detalhes__titulo,
+  .manutencoes-listagem__titulo,
+  .manutencao-formulario__titulo,
+  .manutencao-detalhes__titulo,
+  .necessidades-listagem__titulo,
+  .necessidade-formulario__titulo,
+  .necessidade-detalhes__titulo,
+  .jovem-inicio__titulo,
+  .nos-listagem__titulo,
+  .no-detalhes__titulo,
+  .amarras__titulo,
+  .acampamento__titulo,
+  .leis__titulo,
+  .bussola__titulo,
+  .morse__titulo,
+  .sobre__titulo,
+  .login__titulo
+) { letter-spacing: -.025em; text-wrap: balance; }
+
+/* Superfícies recorrentes */
+:is(
+  .atividades-listagem__cartao,
+  .atividade-detalhes__cartao,
+  .atividade-detalhes__secao,
+  .atividade-devolucao__item,
+  .atividade-formulario__formulario fieldset,
+  .materiais-listagem__cartao,
+  .material-detalhes__cartao,
+  .material-detalhes__secao,
+  .material-formulario__formulario fieldset,
+  .membros-listagem__cartao,
+  .membro-detalhes__cartao,
+  .membro-formulario__formulario fieldset,
+  .manutencoes-listagem__cartao,
+  .manutencao-detalhes__cartao,
+  .manutencao-formulario__formulario fieldset,
+  .necessidades-listagem__cartao,
+  .necessidade-detalhes__cartao,
+  .necessidade-formulario__formulario fieldset,
+  .jovem-inicio__atalho,
+  .nos-listagem__cartao,
+  .nos-listagem__link,
+  .amarras__cartao,
+  .leis__cartao,
+  .morse__conversor,
+  .morse__simbolo,
+  .bussola__painel,
+  .sobre__cartao,
+  .login__cartao
+) {
+  border-color: var(--cor-borda-suave);
+  box-shadow: var(--sombra-card);
+}
+
+:is(
+  .atividades-listagem__cartao,
+  .materiais-listagem__cartao,
+  .membros-listagem__cartao,
+  .manutencoes-listagem__cartao,
+  .necessidades-listagem__cartao,
+  .jovem-inicio__atalho,
+  .nos-listagem__cartao,
+  .nos-listagem__link,
+  .amarras__cartao,
+  .leis__cartao,
+  .morse__simbolo
+):hover {
+  border-color: color-mix(in srgb, var(--cor-primaria) 38%, var(--cor-borda));
+  box-shadow: var(--sombra-elevada);
+  transform: translateY(-2px);
+}
+
+/* Filtros administrativos */
+:is(
+  .atividades-listagem__filtros,
+  .materiais-listagem__filtros,
+  .membros-listagem__filtros,
+  .manutencoes-listagem__filtros,
+  .necessidades-listagem__filtros
+) {
+  position: relative;
+  overflow: hidden;
+  background: color-mix(in srgb, var(--cor-superficie) 94%, var(--cor-primaria-clara));
+  border-color: var(--cor-borda-suave);
+  border-radius: var(--raio-grande);
+  box-shadow: var(--sombra-xs);
+}
+:is(
+  .atividades-listagem__filtros,
+  .materiais-listagem__filtros,
+  .membros-listagem__filtros,
+  .manutencoes-listagem__filtros,
+  .necessidades-listagem__filtros
+)::before {
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 4px;
+  background: linear-gradient(var(--cor-primaria), var(--cor-secundaria));
+  content: "";
+}
+
+/* Empty states */
+:is(
+  .atividades-listagem__vazio,
+  .atividade-detalhes__vazio,
+  .atividade-devolucao__vazio,
+  .materiais-listagem__vazio,
+  .material-detalhes__vazio,
+  .membros-listagem__vazio,
+  .membro-detalhes__vazio,
+  .manutencoes-listagem__vazio,
+  .manutencao-detalhes__vazio,
+  .necessidades-listagem__vazio,
+  .necessidade-detalhes__vazio,
+  .acampamento__vazio,
+  .painel-administrativo__vazio
+) {
+  background:
+    linear-gradient(135deg, rgba(255,255,255,.92), rgba(244,248,240,.96));
+  border: 1px dashed color-mix(in srgb, var(--cor-primaria) 34%, var(--cor-borda));
+  border-radius: var(--raio-grande);
+  color: var(--cor-texto-secundario);
+}
+
+/* Botões primários recorrentes */
+:is(
+  .atividades-listagem__adicionar,
+  .materiais-listagem__adicionar,
+  .membros-listagem__adicionar,
+  .manutencoes-listagem__nova,
+  .necessidades-listagem__adicionar,
+  .atividade-devolucao__concluir,
+  .morse__botao,
+  .bussola__botao,
+  .login__botao
+) {
+  border-radius: 11px;
+  box-shadow: 0 5px 14px rgba(65, 85, 52, .17);
+}
+:is(
+  .atividades-listagem__adicionar,
+  .materiais-listagem__adicionar,
+  .membros-listagem__adicionar,
+  .manutencoes-listagem__nova,
+  .necessidades-listagem__adicionar,
+  .atividade-devolucao__concluir,
+  .morse__botao,
+  .bussola__botao,
+  .login__botao
+):hover:not(:disabled) {
+  background: var(--cor-primaria-escura);
+  box-shadow: 0 8px 20px rgba(51, 68, 42, .2);
+  transform: translateY(-1px);
+}
+:is(
+  .atividades-listagem__adicionar,
+  .materiais-listagem__adicionar,
+  .membros-listagem__adicionar,
+  .manutencoes-listagem__nova,
+  .necessidades-listagem__adicionar,
+  .atividade-devolucao__concluir,
+  .morse__botao,
+  .bussola__botao,
+  .login__botao
+):active:not(:disabled) { transform: scale(.985); }
+
+/* Voltar */
+:is(
+  .atividade-detalhes__voltar,
+  .atividade-devolucao__voltar,
+  .atividade-formulario__voltar,
+  .material-detalhes__voltar,
+  .material-formulario__voltar,
+  .membro-detalhes__voltar,
+  .membro-formulario__voltar,
+  .manutencao-detalhes__voltar,
+  .manutencao-formulario__voltar,
+  .necessidade-detalhes__voltar,
+  .necessidade-formulario__voltar,
+  .no-detalhes__voltar
+)::before {
+  margin-right: .35rem;
+  font-size: 1.15em;
+  content: "←";
+}
+
+/* Status */
+.indicador-situacao {
+  gap: .15rem;
+  min-height: 1.8rem;
+  padding-inline: .65rem;
+  border: 1px solid currentColor;
+  border-color: color-mix(in srgb, currentColor 22%, transparent);
+  box-shadow: inset 0 1px rgba(255,255,255,.45);
+}
+
+/* Toasts e modais */
+.mensagem-retorno { backdrop-filter: blur(10px); }
+.modal-confirmacao,
+.confirmacao-exclusao {
+  border: 1px solid var(--cor-borda-suave);
+  box-shadow: 0 24px 80px rgba(25, 36, 21, .28);
+}
+.modal-confirmacao::backdrop,
+.confirmacao-exclusao::backdrop { backdrop-filter: blur(4px); }
+
+/* Formulários administrativos */
+:is(
+  .atividade-formulario__formulario,
+  .material-formulario__formulario,
+  .membro-formulario__formulario,
+  .manutencao-formulario__formulario,
+  .necessidade-formulario__formulario,
+  .atividade-devolucao__formulario,
+  .manutencao-detalhes__formulario
+) fieldset {
+  background: linear-gradient(180deg, #fff 0%, #fdfdf9 100%);
+  border-radius: var(--raio-grande);
+}
+
+/* Painéis de dados em detalhes */
+:is(
+  .atividade-detalhes__dados div,
+  .material-detalhes__dados div,
+  .membro-detalhes__dados div,
+  .manutencao-detalhes__dados div,
+  .necessidade-detalhes__dados div
+) {
+  background: linear-gradient(135deg, var(--cor-superficie-suave), #f2f5ec);
+  border: 1px solid color-mix(in srgb, var(--cor-primaria) 10%, transparent);
+}
+
+/* Área jovem */
+:is(.nos-listagem__cabecalho, .amarras__cabecalho, .leis__cabecalho, .morse__cabecalho, .bussola__cabecalho) {
+  position: relative;
+}
+:is(.nos-listagem__cabecalho, .amarras__cabecalho, .leis__cabecalho, .morse__cabecalho, .bussola__cabecalho)::after {
+  display: block;
+  width: 54px;
+  height: 3px;
+  margin: 1rem auto 0;
+  background: linear-gradient(90deg, transparent, var(--cor-acento-ouro), transparent);
+  border-radius: 999px;
+  content: "";
+}
+
+/* Login */
+.login__pagina { position: relative; overflow: hidden; }
+.login__pagina::before,
+.login__pagina::after {
+  position: fixed;
+  z-index: -1;
+  width: 24rem;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  filter: blur(2px);
+  content: "";
+}
+.login__pagina::before { top: -12rem; left: -10rem; background: rgba(86, 105, 68, .12); }
+.login__pagina::after { right: -13rem; bottom: -12rem; background: rgba(167, 120, 67, .08); }
+.login__cartao { backdrop-filter: blur(8px); }
+
+/* Redução de movimento */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; }
+}
+
+/* Consistência nas demais listagens administrativas */
+:is(.materiais-listagem__cartao,.membros-listagem__cartao,.manutencoes-listagem__cartao,.necessidades-listagem__cartao) {
+  position: relative; overflow: hidden; background: linear-gradient(155deg,#fff 0%,#fbfcf8 100%); border-radius: 17px;
+}
+:is(.materiais-listagem__cartao,.membros-listagem__cartao,.manutencoes-listagem__cartao,.necessidades-listagem__cartao)::before {
+  position: absolute; inset: 0 auto 0 0; width: 4px; background: linear-gradient(180deg,var(--cor-primaria),var(--cor-secundaria)); content: ""; opacity: .78;
+}
+:is(.materiais-listagem__dados,.membros-listagem__dados,.manutencoes-listagem__dados,.necessidades-listagem__dados) {
+  padding: .68rem; background: linear-gradient(135deg,#f8faf5,#f2f5ec); border: 1px solid rgba(86,105,68,.075); border-radius: 11px;
+}
+:is(.materiais-listagem__nome,.membros-listagem__nome,.manutencoes-listagem__cartao h3,.necessidades-listagem__cartao h3) { color: var(--cor-primaria-escura); letter-spacing: -.012em; }
+:is(.materiais-listagem__acoes a,.materiais-listagem__acoes button,.membros-listagem__acoes a,.membros-listagem__acoes button,.manutencoes-listagem__abrir,.necessidades-listagem__abrir) { border-radius: 10px; }
+:is(.materiais-listagem__acoes a,.materiais-listagem__acoes button,.membros-listagem__acoes a,.membros-listagem__acoes button,.manutencoes-listagem__abrir,.necessidades-listagem__abrir):hover { color:#fff; background:var(--cor-primaria); transform:translateY(-1px); }
+
+/* Cabeçalhos administrativos com maior presença, sem mudar a estrutura responsiva */
+:is(.materiais-listagem__topo,.membros-listagem__topo,.manutencoes-listagem__cabecalho,.necessidades-listagem__topo) { padding-bottom: .35rem; }
+:is(.materiais-listagem__titulo,.membros-listagem__titulo,.manutencoes-listagem__titulo,.necessidades-listagem__titulo) { color: var(--cor-primaria-escura); letter-spacing: -.025em; }
+
+/* Ações de formulários e detalhes */
+:is(
+ .atividade-formulario__acoes button,.atividade-formulario__acoes a,
+ .material-formulario__acoes button,.material-formulario__acoes a,
+ .membro-formulario__acoes button,.membro-formulario__acoes a,
+ .manutencao-formulario__acoes button,.manutencao-formulario__acoes a,
+ .necessidade-formulario__acoes button,.necessidade-formulario__acoes a,
+ .atividade-detalhes__acoes button,.atividade-detalhes__acoes a,.atividade-detalhes__botao-retirada,
+ .material-detalhes__acoes button,.material-detalhes__acoes a,
+ .membro-detalhes__acoes button,.membro-detalhes__acoes a,
+ .manutencao-detalhes__acoes button,.manutencao-detalhes__acoes a,.manutencao-detalhes__salvar,
+ .necessidade-detalhes__acoes button,.necessidade-detalhes__acoes a
+) { border-radius: 10px; }
+
+/* Conteúdo jovem: imagens e cartões ganham profundidade sem virar um jogo */
+.amarras__visual,.nos-listagem__imagem { background: linear-gradient(145deg,#e8eddf,#f2eddf); }
+.amarras__imagem,.nos-listagem__imagem { filter: saturate(.95) contrast(1.02); }
+.amarras__video,.no-detalhes__video { box-shadow: inset 0 0 0 1px rgba(255,255,255,.13),0 8px 22px rgba(44,61,36,.12); }
+.leis__cartao { background: linear-gradient(145deg,#fff,#fbfcf8); }
+.morse__resultado { border: 1px solid rgba(86,105,68,.09); }

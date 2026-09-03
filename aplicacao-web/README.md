@@ -131,21 +131,21 @@ As rotas e os recursos locais usam caminhos relativos, o layout considera áreas
 O projeto React Native recebido não contém a pasta `assets`, embora faça referência às imagens abaixo:
 
 ```text
-imagem-tela-principal-sem-fundo.png
-menu-no-direito.png
-menu-amarras.png
+imagem-tela-principal-sem-fundo.webp
+menu-no-direito.webp
+menu-amarras.webp
 menu-acampamento.jpeg
-menu-leis-escoteiras.png
-menu-bussola.png
-menu-morse.png
-amarra-quadrada-thumb.png
-amarra-diagonal-thumb.png
-amarra-paralela-thumb.png
-amarra-tripe-thumb.png
-no-direito-menu.png
-no-escota-menu.png
-no-de-pescador-menu.png
-no-em-oito-menu.png
+menu-leis-escoteiras.webp
+menu-bussola.webp
+menu-morse.webp
+amarra-quadrada-thumb.webp
+amarra-diagonal-thumb.webp
+amarra-paralela-thumb.webp
+amarra-tripe-thumb.webp
+no-direito-menu.webp
+no-escota-menu.webp
+no-de-pescador-menu.webp
+no-em-oito-menu.webp
 ```
 
 Os nomes esperados continuam registrados nos dados. Foram usados placeholders SVG locais, discretos e sem dependência externa, até que os arquivos originais sejam fornecidos. As fontes Poppins e Gentium Book Plus também não estavam no pacote; por isso a interface possui pilhas de fontes alternativas e funciona offline sem elas.

@@ -1,26 +1,30 @@
 * { box-sizing: border-box; }
 html { min-width: 320px; background: var(--cor-fundo); }
 body { min-height: 100dvh; margin: 0; color: var(--cor-texto-principal); background: var(--cor-fundo); font-family: var(--fonte-corpo); }
-.jovem-inicio__principal { width: min(100% - 2rem, 72rem); margin: 0 auto; padding: 1.25rem 0 calc(2rem + env(safe-area-inset-bottom)); }
-.jovem-inicio__boas-vindas { display: grid; gap: 1rem; padding: 1.4rem; background: var(--cor-terciaria); border-radius: var(--raio-grande); overflow: hidden; }
-.jovem-inicio__chamada { margin: 0 0 0.35rem; color: var(--cor-primaria); font-size: 0.8rem; font-weight: 700; letter-spacing: 0.09em; text-transform: uppercase; }
-.jovem-inicio__titulo { margin: 0; color: var(--cor-primaria-escura); font: 700 clamp(2rem, 9vw, 3.3rem)/1 var(--fonte-titulo); }
-.jovem-inicio__secao { margin: 0.6rem 0 0; color: var(--cor-primaria); font-weight: 700; }
-.jovem-inicio__descricao { max-width: 34rem; margin: 0.75rem 0 0; color: var(--cor-texto-secundario); line-height: 1.55; }
-.jovem-inicio__imagem { width: 100%; max-height: 16rem; object-fit: cover; border-radius: var(--raio-medio); }
-.jovem-inicio__subtitulo { margin: 1.6rem 0 1rem; font: 700 1.55rem var(--fonte-titulo); }
-.jovem-inicio__atalhos { display: grid; gap: 0.85rem; }
-.jovem-inicio__atalho { position: relative; min-height: 88px; display: grid; align-content: center; padding: 1rem 3rem 1rem 1.1rem; color: var(--cor-texto-principal); background: var(--cor-superficie); border: 1px solid var(--cor-borda); border-radius: var(--raio-medio); box-shadow: var(--sombra-suave); text-decoration: none; }
-.jovem-inicio__atalho::after { position: absolute; right: 1.1rem; top: 50%; color: var(--cor-primaria); font-size: 1.5rem; content: "›"; transform: translateY(-50%); }
-.jovem-inicio__atalho span { color: var(--cor-primaria-escura); font: 700 1.35rem var(--fonte-titulo); }
-.jovem-inicio__atalho small { margin-top: 0.2rem; color: var(--cor-texto-secundario); font-size: 0.78rem; }
+.jovem-inicio__principal { width: min(100% - 2rem, 72rem); margin: 0 auto; padding: 1.25rem 0 calc(2.5rem + env(safe-area-inset-bottom)); }
+.jovem-inicio__boas-vindas { position: relative; display: grid; gap: .5rem; overflow: hidden; padding: 1.45rem; color: #f7f8f4; background: radial-gradient(circle at 90% 5%, rgba(230,213,167,.18), transparent 15rem), linear-gradient(135deg, #405135, #5b7049 64%, #6e8158); border: 1px solid rgba(255,255,255,.12); border-radius: 24px; box-shadow: 0 18px 42px rgba(44,61,36,.15); }
+.jovem-inicio__boas-vindas::before { position: absolute; inset: 0; opacity: .12; background-image: radial-gradient(circle, #fff 0 1px, transparent 1.2px); background-size: 19px 19px; mask-image: linear-gradient(90deg,#000,transparent 70%); content: ""; }
+.jovem-inicio__boas-vindas > div { position: relative; z-index: 2; }
+.jovem-inicio__chamada { margin: 0 0 .35rem; color: #e4cf9a; font-size: .72rem; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; }
+.jovem-inicio__titulo { margin: 0; color: #fff; font: 700 clamp(2rem, 9vw, 3.45rem)/.98 var(--fonte-titulo); }
+.jovem-inicio__secao { margin: .65rem 0 0; color: #f1ead7; font-size: .83rem; font-weight: 750; }
+.jovem-inicio__descricao { max-width: 34rem; margin: .75rem 0 0; color: rgba(249,250,246,.78); font-size: .84rem; line-height: 1.6; }
+.jovem-inicio__imagem { position: relative; z-index: 1; width: 100%; max-height: 17rem; display: block; align-self: end; object-fit: contain; filter: drop-shadow(0 14px 16px rgba(31,44,26,.2)); transform: translateY(.6rem); }
+.jovem-inicio__subtitulo { margin: 1.8rem 0 .9rem; color: var(--cor-primaria-escura); font: 700 1.65rem var(--fonte-titulo); }
+.jovem-inicio__atalhos { display: grid; gap: .85rem; }
+.jovem-inicio__atalho { position: relative; min-height: 100px; display: grid; align-content: center; overflow: hidden; padding: 1rem 3.2rem 1rem 1.15rem; color: var(--cor-texto-principal); background: linear-gradient(145deg, rgba(255,255,255,.97), rgba(248,250,245,.96)); border: 1px solid var(--cor-borda); border-radius: 16px; box-shadow: var(--sombra-suave); text-decoration: none; }
+.jovem-inicio__atalho::before { position: absolute; top: 0; bottom: 0; left: 0; width: 4px; background: linear-gradient(var(--cor-primaria), var(--cor-secundaria)); content: ""; }
+.jovem-inicio__atalho::after { position: absolute; right: 1.1rem; top: 50%; display: grid; width: 30px; height: 30px; place-items: center; color: var(--cor-primaria); background: var(--cor-terciaria); border-radius: 50%; font-size: 1.2rem; content: "›"; transform: translateY(-50%); }
+.jovem-inicio__atalho span { color: var(--cor-primaria-escura); font: 700 1.36rem var(--fonte-titulo); }
+.jovem-inicio__atalho small { margin-top: .22rem; color: var(--cor-texto-secundario); font-size: .76rem; }
 .jovem-inicio__atalho:hover { border-color: var(--cor-primaria); transform: translateY(-2px); }
 .jovem-inicio__atalho:focus-visible, .jovem-inicio__sobre:focus-visible { outline: 3px solid var(--cor-informacao); outline-offset: 3px; }
-.jovem-inicio__sobre { display: block; width: fit-content; min-height: 44px; margin: 1rem auto 0; padding: 0.7rem 1rem; color: var(--cor-primaria); font-weight: 700; text-decoration: none; }
-
+.jovem-inicio__sobre { display: block; width: fit-content; min-height: 44px; margin: 1.15rem auto 0; padding: .7rem 1rem; color: var(--cor-primaria); border-radius: 10px; font-weight: 700; text-decoration: none; }
+.jovem-inicio__sobre:hover { background: var(--cor-terciaria); }
 @media (min-width: 768px) {
   .jovem-inicio__principal { padding-top: 2rem; }
-  .jovem-inicio__boas-vindas { grid-template-columns: 1.15fr 0.85fr; align-items: center; padding: 2rem; }
+  .jovem-inicio__boas-vindas { grid-template-columns: 1.08fr .92fr; align-items: center; min-height: 22rem; padding: 2.2rem; }
+  .jovem-inicio__imagem { max-height: 21rem; margin: -1rem -1.5rem -1rem 0; }
   .jovem-inicio__atalhos { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 @media (min-width: 1024px) { .jovem-inicio__atalhos { grid-template-columns: repeat(3, minmax(0, 1fr)); } }

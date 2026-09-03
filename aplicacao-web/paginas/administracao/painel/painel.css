@@ -1,23 +1,82 @@
 * { box-sizing: border-box; }
 html { min-width: 320px; background: var(--cor-fundo); }
-body { min-height: 100dvh; margin: 0; color: var(--cor-texto-principal); background: var(--cor-fundo); font-family: var(--fonte-corpo); }
-.painel-administrativo__principal { width: min(100% - 2rem, 76rem); margin: 0 auto; padding: 1.25rem 0 calc(2rem + env(safe-area-inset-bottom)); }
-.painel-administrativo__titulo-linha { display: flex; flex-direction: column; gap: 0.75rem; }
-.painel-administrativo__etiqueta { margin: 0; color: var(--cor-primaria); font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em; }
-.painel-administrativo__titulo { margin: 0.25rem 0 0; font: 700 2rem var(--fonte-titulo); }
-.painel-administrativo__guia { min-height: 44px; display: flex; align-items: center; justify-content: center; padding: 0.65rem 0.9rem; color: var(--cor-superficie); background: var(--cor-primaria); border-radius: var(--raio-pequeno); font-size: 0.82rem; font-weight: 700; text-decoration: none; }
-.painel-administrativo__indicadores { display: grid; gap: 0.75rem; margin-top: 1rem; grid-template-columns: repeat(2, minmax(0, 1fr)); }
-.painel-administrativo__indicador { min-height: 112px; padding: 1rem; background: var(--cor-superficie); border: 1px solid var(--cor-borda); border-radius: var(--raio-medio); box-shadow: var(--sombra-suave); }
-.painel-administrativo__indicador strong { display: block; color: var(--cor-primaria-escura); font: 700 2rem var(--fonte-titulo); }
-.painel-administrativo__indicador span { color: var(--cor-texto-secundario); font-size: 0.75rem; line-height: 1.3; }
-.painel-administrativo__subtitulo { margin: 1.6rem 0 0.75rem; font: 700 1.35rem var(--fonte-titulo); }
-.painel-administrativo__acoes { display: grid; gap: 0.6rem; }
-.painel-administrativo__acoes a { min-height: 50px; display: flex; align-items: center; padding: 0.75rem 1rem; color: var(--cor-primaria-escura); background: var(--cor-superficie); border: 1px solid var(--cor-borda); border-radius: var(--raio-pequeno); font-size: 0.82rem; font-weight: 700; text-decoration: none; }
-.painel-administrativo__lista { display: grid; gap: 0.6rem; }
-.painel-administrativo__alerta, .painel-administrativo__movimentacao, .painel-administrativo__vazio { padding: 0.9rem; background: var(--cor-superficie); border: 1px solid var(--cor-borda); border-radius: var(--raio-pequeno); font-size: 0.8rem; line-height: 1.45; }
-.painel-administrativo__alerta { border-left: 4px solid var(--cor-aviso); }
-.painel-administrativo__movimentacao { display: grid; gap: 0.35rem; }
-.painel-administrativo__movimentacao small { color: var(--cor-texto-secundario); }
+body { min-height: 100dvh; margin: 0; color: var(--cor-texto-principal); font-family: var(--fonte-corpo); }
+.painel-administrativo__principal { width: min(100% - 2rem, 76rem); margin: 0 auto; padding: 1.25rem 0 calc(2.5rem + env(safe-area-inset-bottom)); }
+
+.painel-administrativo__hero {
+  position: relative; display: grid; min-height: 19rem; overflow: hidden; margin-bottom: 1.6rem;
+  color: #f8faf5; background:
+    radial-gradient(circle at 82% 8%, rgba(234,220,179,.18), transparent 15rem),
+    linear-gradient(128deg, #3d4e34 0%, #536943 52%, #64794f 100%);
+  border: 1px solid rgba(255,255,255,.12); border-radius: 24px; box-shadow: 0 18px 42px rgba(46,63,38,.17);
+}
+.painel-administrativo__hero::before { position: absolute; inset: 0; opacity: .11; background-image: radial-gradient(circle, #fff 0 1px, transparent 1.2px); background-size: 20px 20px; mask-image: linear-gradient(90deg,#000,transparent 72%); content: ""; }
+.painel-administrativo__hero-conteudo { position: relative; z-index: 2; padding: 1.5rem; }
+.painel-administrativo__hero-etiqueta { margin: 0; color: #e1cf9e; font-size: .68rem; font-weight: 800; letter-spacing: .14em; }
+.painel-administrativo__hero-titulo { max-width: 30rem; margin: .45rem 0 0; color: #fff; font: 700 clamp(2rem, 8vw, 3.35rem)/.98 var(--fonte-titulo); letter-spacing: -.035em; text-wrap: balance; }
+.painel-administrativo__hero-texto { max-width: 34rem; margin: 1rem 0 1.25rem; color: rgba(248,250,245,.78); font-size: .85rem; line-height: 1.65; }
+.painel-administrativo__guia { width: fit-content; min-height: 46px; display: inline-flex; align-items: center; justify-content: center; gap: .7rem; padding: .7rem 1rem; color: var(--cor-primaria-escura); background: #f4eedc; border: 1px solid rgba(255,255,255,.35); border-radius: 12px; box-shadow: 0 8px 20px rgba(30,42,25,.16); font-size: .8rem; font-weight: 800; text-decoration: none; }
+.painel-administrativo__guia:hover { background: #fffaf0; transform: translateY(-1px); }
+.painel-administrativo__hero-arte { position: relative; min-height: 9rem; align-self: end; }
+.painel-administrativo__hero-arte img { position: absolute; right: -1.5rem; bottom: -1rem; width: min(25rem, 92vw); height: auto; display: block; filter: drop-shadow(0 15px 18px rgba(25,37,21,.2)); }
+
+.painel-administrativo__secao { margin-top: 1.7rem; }
+.painel-administrativo__titulo-linha, .painel-administrativo__secao-cabecalho { display: flex; flex-direction: column; gap: .25rem; margin-bottom: .9rem; }
+.painel-administrativo__etiqueta { margin: 0; color: var(--cor-primaria); font-size: .68rem; font-weight: 800; letter-spacing: .12em; }
+.painel-administrativo__titulo { margin: .18rem 0 0; color: var(--cor-primaria-escura); font: 700 2rem var(--fonte-titulo); }
+.painel-administrativo__apoio, .painel-administrativo__secao-cabecalho > p { margin: .25rem 0 0; color: var(--cor-texto-secundario); font-size: .76rem; line-height: 1.5; }
+.painel-administrativo__subtitulo { margin: .18rem 0 0; color: var(--cor-primaria-escura); font: 700 1.45rem var(--fonte-titulo); }
+
+.painel-administrativo__indicadores { display: grid; gap: .75rem; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.painel-administrativo__indicador { position: relative; min-height: 124px; overflow: hidden; padding: 1rem; background: linear-gradient(145deg, #fff 0%, #f8faf5 100%); border: 1px solid color-mix(in srgb, var(--cor-primaria) 16%, #fff); border-radius: 17px; box-shadow: 0 9px 26px rgba(42,58,35,.07); }
+.painel-administrativo__indicador::before { position: absolute; top: .8rem; right: .8rem; width: 32px; height: 32px; background: linear-gradient(145deg, var(--cor-terciaria), #f4f0e2); border: 1px solid rgba(86,105,68,.1); border-radius: 10px; content: ""; }
+.painel-administrativo__indicador::after { position: absolute; top: 1.25rem; right: 1.25rem; width: 14px; height: 14px; border: 2px solid var(--cor-primaria); border-top-color: transparent; border-radius: 50%; content: ""; opacity: .72; }
+.painel-administrativo__indicador strong { display: block; margin-top: .15rem; color: var(--cor-primaria-escura); font: 700 2.25rem/.95 var(--fonte-titulo); letter-spacing: -.03em; }
+.painel-administrativo__indicador span { display: block; max-width: 8rem; margin-top: .65rem; color: var(--cor-texto-secundario); font-size: .7rem; font-weight: 650; line-height: 1.35; }
+.painel-administrativo__indicador:hover { border-color: color-mix(in srgb, var(--cor-primaria) 34%, #fff); box-shadow: 0 14px 32px rgba(42,58,35,.11); transform: translateY(-2px); }
+
+.painel-administrativo__acoes { display: grid; gap: .7rem; }
+.painel-administrativo__acoes a { position: relative; min-height: 76px; display: grid; grid-template-columns: 42px minmax(0,1fr) auto; align-items: center; gap: .8rem; padding: .85rem 1rem; color: var(--cor-texto-principal); background: rgba(255,255,255,.88); border: 1px solid color-mix(in srgb, var(--cor-primaria) 16%, #fff); border-radius: 16px; box-shadow: 0 7px 22px rgba(42,58,35,.06); text-decoration: none; }
+.painel-administrativo__acao-icone { width: 42px; height: 42px; display: grid; place-items: center; color: var(--cor-primaria); background: linear-gradient(145deg, var(--cor-terciaria), #f6f1e4); border-radius: 12px; }
+.painel-administrativo__acao-icone svg { width: 23px; height: 23px; fill: none; stroke: currentColor; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
+.painel-administrativo__acoes strong { display: block; color: var(--cor-primaria-escura); font-size: .82rem; }
+.painel-administrativo__acoes small { display: block; margin-top: .18rem; color: var(--cor-texto-secundario); font-size: .67rem; }
+.painel-administrativo__acoes i { color: var(--cor-primaria); font: normal 1.4rem var(--fonte-corpo); }
+.painel-administrativo__acoes a:hover { border-color: color-mix(in srgb, var(--cor-primaria) 38%, #fff); box-shadow: 0 12px 28px rgba(42,58,35,.1); transform: translateY(-2px); }
+
+.painel-administrativo__colunas { display: grid; gap: 1rem; }
+.painel-administrativo__secao--lista { padding: 1rem; background: rgba(255,255,255,.62); border: 1px solid color-mix(in srgb, var(--cor-primaria) 12%, #fff); border-radius: 19px; box-shadow: 0 8px 26px rgba(42,58,35,.055); }
+.painel-administrativo__secao-cabecalho--compacto { flex-direction: row; align-items: center; justify-content: space-between; }
+.painel-administrativo__marcador { width: 10px; height: 10px; background: #c58b32; border-radius: 50%; box-shadow: 0 0 0 5px rgba(197,139,50,.11); }
+.painel-administrativo__lista { display: grid; gap: .6rem; }
+.painel-administrativo__alerta, .painel-administrativo__movimentacao, .painel-administrativo__vazio { position: relative; padding: .9rem 1rem; background: #fff; border: 1px solid color-mix(in srgb, var(--cor-primaria) 13%, #fff); border-radius: 13px; font-size: .76rem; line-height: 1.5; }
+.painel-administrativo__alerta { padding-left: 1.25rem; border-left: 0; }
+.painel-administrativo__alerta::before { position: absolute; top: .8rem; bottom: .8rem; left: .55rem; width: 3px; background: linear-gradient(#c7923d,#a86b2c); border-radius: 999px; content: ""; }
+.painel-administrativo__movimentacao { display: grid; gap: .35rem; }
+.painel-administrativo__movimentacao strong { color: var(--cor-primaria-escura); }
+.painel-administrativo__movimentacao small { color: var(--cor-texto-secundario); line-height: 1.45; }
+
 .painel-administrativo__guia:focus-visible, .painel-administrativo__acoes a:focus-visible { outline: 3px solid var(--cor-informacao); outline-offset: 2px; }
-@media (min-width: 600px) { .painel-administrativo__titulo-linha { flex-direction: row; align-items: end; justify-content: space-between; } .painel-administrativo__indicadores { grid-template-columns: repeat(4, 1fr); } .painel-administrativo__acoes { grid-template-columns: repeat(3, 1fr); } }
-@media (min-width: 1024px) { .painel-administrativo__principal { width: min(calc(100% - 280px - 3rem), 76rem); margin-left: calc(280px + 1.5rem); } .painel-administrativo__colunas { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; } }
+@media (min-width: 600px) {
+  .painel-administrativo__hero { grid-template-columns: 1.15fr .85fr; min-height: 18.5rem; }
+  .painel-administrativo__hero-conteudo { padding: 2rem; }
+  .painel-administrativo__hero-arte { min-height: 100%; }
+  .painel-administrativo__hero-arte img { right: -2.7rem; bottom: -1.6rem; width: 25rem; }
+  .painel-administrativo__titulo-linha, .painel-administrativo__secao-cabecalho { flex-direction: row; align-items: end; justify-content: space-between; }
+  .painel-administrativo__apoio, .painel-administrativo__secao-cabecalho > p { max-width: 20rem; text-align: right; }
+  .painel-administrativo__indicadores { grid-template-columns: repeat(4, 1fr); }
+  .painel-administrativo__acoes { grid-template-columns: repeat(2, 1fr); }
+}
+@media (min-width: 1024px) {
+  .painel-administrativo__principal { width: min(calc(100% - 280px - 3rem), 76rem); margin-left: calc(280px + 1.5rem); padding-top: 1.5rem; }
+  .painel-administrativo__hero { min-height: 20rem; }
+  .painel-administrativo__hero-arte img { width: 28rem; }
+  .painel-administrativo__indicadores { grid-template-columns: repeat(7, minmax(0,1fr)); gap: .65rem; }
+  .painel-administrativo__indicador { min-height: 132px; padding: .9rem; }
+  .painel-administrativo__indicador strong { font-size: 2.05rem; }
+  .painel-administrativo__indicador span { font-size: .65rem; }
+  .painel-administrativo__acoes { grid-template-columns: repeat(4, 1fr); }
+  .painel-administrativo__acoes a { min-height: 112px; grid-template-columns: 42px minmax(0,1fr); align-content: center; }
+  .painel-administrativo__acoes i { position: absolute; top: .65rem; right: .8rem; }
+  .painel-administrativo__colunas { grid-template-columns: 1fr 1fr; gap: 1rem; }
+}

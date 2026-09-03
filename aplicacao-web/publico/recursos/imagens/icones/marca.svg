@@ -1,9 +1,15 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="titulo descricao">
-  <title id="titulo">Guia Escoteiro</title>
-  <desc id="descricao">Marca simples de uma barraca sob uma estrela.</desc>
-  <rect width="64" height="64" rx="14" fill="#183f35"/>
-  <path d="M32 9l2.4 5 5.5.8-4 3.9.9 5.5-4.8-2.6-4.8 2.6.9-5.5-4-3.9 5.5-.8z" fill="#f3c969"/>
-  <path d="M12 50l20-25 20 25H12z" fill="#f5efe2"/>
-  <path d="M32 25v25H18l14-25z" fill="#d27a3f"/>
-  <path d="M32 38l8 12H32V38z" fill="#183f35"/>
+  <title id="titulo">Guia de Bolso Escoteiro</title>
+  <desc id="descricao">Ícone de uma barraca clara sobre fundo verde com cantos arredondados.</desc>
+  <defs>
+    <linearGradient id="verde" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#657b52"/>
+      <stop offset="1" stop-color="#435636"/>
+    </linearGradient>
+  </defs>
+  <rect x="2" y="2" width="60" height="60" rx="15" fill="url(#verde)"/>
+  <path d="M31 14l-2.4 4h2.2L17.2 47.5h11.6L32 39l3.2 8.5h11.6L33.2 18h2.2L33 14l-1 1.7z" fill="#f7f0dc"/>
+  <path d="M32 20v27.5M28.8 47.5L32 39l3.2 8.5" fill="none" stroke="#dfd3b5" stroke-width="1.35" stroke-linecap="round"/>
+  <path d="M18.5 47.5h27" stroke="#f7f0dc" stroke-width="1.8" stroke-linecap="round"/>
+  <path d="M17.2 47.5l-5.5 4M46.8 47.5l5.5 4" stroke="#f7f0dc" stroke-width="1.4" stroke-linecap="round"/>
 </svg>

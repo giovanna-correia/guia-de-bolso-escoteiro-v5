@@ -41,6 +41,10 @@ export function montarMenuAdministrativo(usuario: Usuario): void {
     link.className = 'menu-administrativo__link';
     link.href = `${raiz}${caminho}`;
     link.textContent = rotulo;
+    if (window.location.pathname.endsWith(caminho)) {
+      link.classList.add('menu-administrativo__link--ativo');
+      link.setAttribute('aria-current', 'page');
+    }
     navegacao.append(link);
   });
   const guia = document.createElement('a');
