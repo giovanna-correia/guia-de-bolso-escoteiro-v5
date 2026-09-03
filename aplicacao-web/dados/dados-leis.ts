@@ -13,4 +13,4 @@ export const leisEscoteiras = [
   '10. O Escoteiro é limpo de corpo e alma.'
 ];
 
-export const linkPdfLeis = 'https://www.escoteiros.org.br/wp-content/uploads/2016/03/Princ%C3%ADpios-Organiza%C3%A7%C3%A3o-e-Regras.pdf';
+export const linkPdfLeis = 'https://www.escoteiros.org.br/wp-content/uploads/2020/07/POR_2025_21.pdf';

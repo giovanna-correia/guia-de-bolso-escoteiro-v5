@@ -246,11 +246,7 @@ input::placeholder, textarea::placeholder { color: #929b90; }
   .necessidade-detalhes__voltar,
   .necessidade-formulario__voltar,
   .no-detalhes__voltar
-)::before {
-  margin-right: .35rem;
-  font-size: 1.15em;
-  content: "←";
-}
+)::before { content: none; }
 
 /* Status */
 .indicador-situacao {

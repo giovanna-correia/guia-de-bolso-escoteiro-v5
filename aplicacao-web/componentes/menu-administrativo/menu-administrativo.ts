@@ -54,7 +54,7 @@ export function montarMenuAdministrativo(usuario: Usuario): void {
   navegacao.append(guia);
   const restaurar = document.createElement('button');
   restaurar.type = 'button';
-  restaurar.className = 'menu-administrativo__acao';
+  restaurar.className = 'menu-administrativo__acao menu-administrativo__acao--restaurar';
   restaurar.textContent = 'Restaurar dados demonstrativos';
   const sair = document.createElement('button');
   sair.type = 'button';
