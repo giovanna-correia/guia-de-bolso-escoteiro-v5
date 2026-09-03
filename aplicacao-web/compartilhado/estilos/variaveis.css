@@ -1,0 +1,30 @@
+:root {
+  --cor-primaria: #566944;
+  --cor-primaria-escura: #34442a;
+  --cor-secundaria: #9aaa84;
+  --cor-terciaria: #e7ecdf;
+  --cor-fundo: #f5f6f1;
+  --cor-superficie: #ffffff;
+  --cor-texto-principal: #243142;
+  --cor-texto-secundario: #647067;
+  --cor-borda: #d7ddd1;
+  --cor-sucesso: #276c35;
+  --cor-aviso: #95620f;
+  --cor-perigo: #9b2e2e;
+  --cor-informacao: #2f6680;
+  --cor-neutra: #667085;
+  --cor-sobreposicao: rgba(19, 29, 17, 0.48);
+  --fonte-corpo: "Poppins", Arial, sans-serif;
+  --fonte-titulo: "Gentium Book Plus", Georgia, serif;
+  --espaco-1: 0.25rem;
+  --espaco-2: 0.5rem;
+  --espaco-3: 0.75rem;
+  --espaco-4: 1rem;
+  --espaco-5: 1.5rem;
+  --espaco-6: 2rem;
+  --raio-pequeno: 6px;
+  --raio-medio: 12px;
+  --raio-grande: 20px;
+  --sombra-suave: 0 4px 14px rgba(28, 39, 24, 0.1);
+  --sombra-media: 0 8px 24px rgba(28, 39, 24, 0.16);
+}

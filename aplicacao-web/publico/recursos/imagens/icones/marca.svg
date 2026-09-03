@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="titulo descricao">
+  <title id="titulo">Guia Escoteiro</title>
+  <desc id="descricao">Marca simples de uma barraca sob uma estrela.</desc>
+  <rect width="64" height="64" rx="14" fill="#183f35"/>
+  <path d="M32 9l2.4 5 5.5.8-4 3.9.9 5.5-4.8-2.6-4.8 2.6.9-5.5-4-3.9 5.5-.8z" fill="#f3c969"/>
+  <path d="M12 50l20-25 20 25H12z" fill="#f5efe2"/>
+  <path d="M32 25v25H18l14-25z" fill="#d27a3f"/>
+  <path d="M32 38l8 12H32V38z" fill="#183f35"/>
+</svg>

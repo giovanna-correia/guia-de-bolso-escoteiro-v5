@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="theme-color" content="#566944">
+    <title>Código Morse | Guia de Bolso</title><link rel="icon" href="../../../recursos/imagens/icones/marca.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="../../../compartilhado/estilos/variaveis.css"><link rel="stylesheet" href="../../../componentes/cabecalho-jovem/cabecalho-jovem.css"><link rel="stylesheet" href="./morse.css">
+  </head>
+  <body data-raiz="../../../">
+    <div id="cabecalho-jovem"></div>
+    <main class="morse__principal">
+      <header class="morse__cabecalho"><p class="morse__etiqueta">COMUNICAÇÃO</p><h1 class="morse__titulo">Código Morse</h1><p id="texto-introducao" class="morse__introducao"></p></header>
+      <section class="morse__conversor" aria-labelledby="titulo-conversor"><h2 id="titulo-conversor" class="morse__subtitulo">Converter mensagem</h2><label for="campo-mensagem">Mensagem</label><textarea id="campo-mensagem" class="morse__campo" rows="4" placeholder="Digite uma mensagem"></textarea><div class="morse__resultado"><strong>Resultado</strong><output id="resultado-morse">A mensagem em Morse aparecerá aqui.</output></div><button id="botao-limpar" class="morse__botao" type="button">Limpar</button></section>
+      <section aria-labelledby="titulo-tabela"><h2 id="titulo-tabela" class="morse__subtitulo morse__subtitulo--tabela">Tabela rápida</h2><div id="tabela-morse" class="morse__tabela"></div></section>
+    </main>
+    <script type="module" src="./morse.ts"></script>
+  </body>
+</html>

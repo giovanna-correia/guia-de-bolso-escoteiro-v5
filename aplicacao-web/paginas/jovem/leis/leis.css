@@ -1,0 +1,15 @@
+* { box-sizing: border-box; }
+html { min-width: 320px; background: var(--cor-fundo); }
+body { min-height: 100dvh; margin: 0; color: var(--cor-texto-principal); background: var(--cor-fundo); font-family: var(--fonte-corpo); }
+.leis__principal { width: min(100% - 2rem, 62rem); margin: 0 auto; padding: 1.5rem 0 calc(2rem + env(safe-area-inset-bottom)); }
+.leis__cabecalho { max-width: 49rem; margin: 0 auto 1.5rem; }
+.leis__etiqueta { margin: 0; color: var(--cor-primaria); font-size: 0.75rem; font-weight: 700; letter-spacing: 0.1em; text-align: center; }
+.leis__titulo { margin: 0.4rem 0 1rem; color: var(--cor-primaria-escura); font: 700 2.4rem/1 var(--fonte-titulo); text-align: center; }
+.leis__introducao { margin: 0 0 1rem; line-height: 1.65; }
+.leis__pdf { min-height: 48px; display: flex; align-items: center; justify-content: center; padding: 0.7rem 1rem; color: var(--cor-primaria-escura); background: var(--cor-terciaria); border: 1px solid var(--cor-secundaria); border-radius: var(--raio-medio); font-weight: 700; text-align: center; text-decoration: none; }
+.leis__lista { display: grid; gap: 0.75rem; counter-reset: leis; }
+.leis__cartao { position: relative; min-height: 96px; display: flex; align-items: center; padding: 1.1rem 1.1rem 1.1rem 4rem; background: var(--cor-superficie); border: 1px solid var(--cor-borda); border-radius: var(--raio-medio); box-shadow: var(--sombra-suave); line-height: 1.5; }
+.leis__cartao::before { position: absolute; left: 1rem; display: grid; width: 2.2rem; height: 2.2rem; place-items: center; color: var(--cor-superficie); background: var(--cor-primaria); border-radius: 50%; font-weight: 700; counter-increment: leis; content: counter(leis); }
+.leis__pdf:hover { background: var(--cor-secundaria); }
+.leis__pdf:focus-visible { outline: 3px solid var(--cor-informacao); outline-offset: 3px; }
+@media (min-width: 768px) { .leis__lista { grid-template-columns: repeat(2, 1fr); } }

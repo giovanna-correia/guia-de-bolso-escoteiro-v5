@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360" role="img" aria-labelledby="titulo descricao">
+  <title id="titulo">Ilustração escoteira temporária</title>
+  <desc id="descricao">Paisagem natural com uma barraca estilizada.</desc>
+  <rect width="640" height="360" rx="36" fill="#e7ecdf"/>
+  <circle cx="505" cy="78" r="36" fill="#e8bc56"/>
+  <path d="M0 230 130 115l110 115 88-72 144 125 84-91 84 75v93H0z" fill="#9aaa84"/>
+  <path d="m208 297 92-142 92 142z" fill="#566944"/>
+  <path d="m300 155 92 142h-45l-47-73-47 73h-45z" fill="#34442a"/>
+  <path d="M300 224v73h47z" fill="#f5f6f1"/>
+</svg>

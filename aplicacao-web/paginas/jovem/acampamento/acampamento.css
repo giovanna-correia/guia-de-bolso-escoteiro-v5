@@ -1,0 +1,31 @@
+* { box-sizing: border-box; }
+html { min-width: 320px; background: var(--cor-fundo); }
+body { min-height: 100dvh; margin: 0; color: var(--cor-texto-principal); background: var(--cor-fundo); font-family: var(--fonte-corpo); }
+.acampamento__principal { width: min(100% - 2rem, 62rem); margin: 0 auto; padding: 1.5rem 0 calc(2rem + env(safe-area-inset-bottom)); }
+.acampamento__cabecalho { max-width: 49rem; margin: 0 auto 1.3rem; }
+.acampamento__etiqueta { margin: 0; color: var(--cor-primaria); font-size: 0.75rem; font-weight: 700; letter-spacing: 0.1em; text-align: center; }
+.acampamento__titulo { margin: 0.4rem 0 1rem; color: var(--cor-primaria-escura); font: 700 2.3rem/1 var(--fonte-titulo); text-align: center; }
+.acampamento__introducao { margin: 0; line-height: 1.65; }
+.acampamento__controles { display: grid; gap: 0.7rem; margin-bottom: 0.8rem; padding: 1rem; background: var(--cor-superficie); border: 1px solid var(--cor-borda); border-radius: var(--raio-medio); }
+.acampamento__grupo-campo { display: grid; gap: 0.35rem; font-size: 0.82rem; font-weight: 700; }
+.acampamento__campo { width: 100%; min-height: 46px; padding: 0.65rem 0.8rem; color: var(--cor-texto-principal); background: var(--cor-superficie); border: 1px solid var(--cor-borda); border-radius: var(--raio-pequeno); font: 1rem var(--fonte-corpo); }
+.acampamento__botao { min-height: 44px; padding: 0.65rem 0.9rem; border-radius: var(--raio-pequeno); font: 700 0.84rem var(--fonte-corpo); cursor: pointer; }
+.acampamento__botao--adicionar { color: var(--cor-superficie); background: var(--cor-primaria); border: 1px solid var(--cor-primaria); }
+.acampamento__botao--resetar, .acampamento__botao--cancelar { color: var(--cor-primaria-escura); background: var(--cor-superficie); border: 1px solid var(--cor-primaria); }
+.acampamento__resumo { margin: 1rem 0; color: var(--cor-texto-secundario); font-size: 0.85rem; }
+.acampamento__lista { display: grid; gap: 0.65rem; }
+.acampamento__item { min-height: 68px; display: grid; grid-template-columns: 44px 1fr 44px; align-items: center; gap: 0.55rem; padding: 0.6rem; background: var(--cor-superficie); border: 1px solid var(--cor-borda); border-radius: var(--raio-medio); box-shadow: var(--sombra-suave); }
+.acampamento__marcador { width: 44px; height: 44px; color: var(--cor-primaria); background: var(--cor-terciaria); border: 2px solid var(--cor-secundaria); border-radius: 50%; font-size: 1.2rem; cursor: pointer; }
+.acampamento__marcador--marcado { color: var(--cor-superficie); background: var(--cor-sucesso); border-color: var(--cor-sucesso); }
+.acampamento__nome { line-height: 1.4; }
+.acampamento__nome--marcado { color: var(--cor-texto-secundario); text-decoration: line-through; }
+.acampamento__excluir { width: 44px; height: 44px; color: var(--cor-perigo); background: transparent; border: 0; border-radius: 50%; font-size: 1.2rem; cursor: pointer; }
+.acampamento__vazio { padding: 2rem 1rem; color: var(--cor-texto-secundario); background: var(--cor-superficie); border: 1px dashed var(--cor-borda); border-radius: var(--raio-medio); text-align: center; }
+.acampamento__dialogo { width: calc(100% - 2rem); max-width: 28rem; max-height: calc(100dvh - 2rem); padding: 1.25rem; color: var(--cor-texto-principal); background: var(--cor-superficie); border: 0; border-radius: var(--raio-grande); box-shadow: var(--sombra-media); font-family: var(--fonte-corpo); }
+.acampamento__dialogo::backdrop { background: var(--cor-sobreposicao); }
+.acampamento__formulario { display: grid; gap: 0.5rem; }
+.acampamento__titulo-dialogo { margin: 0 0 0.8rem; font: 700 1.55rem var(--fonte-titulo); }
+.acampamento__erro { min-height: 1.2rem; margin: 0; color: var(--cor-perigo); font-size: 0.78rem; }
+.acampamento__acoes-dialogo { display: flex; flex-direction: column-reverse; gap: 0.6rem; margin-top: 0.7rem; }
+.acampamento__campo:focus-visible, .acampamento__botao:focus-visible, .acampamento__marcador:focus-visible, .acampamento__excluir:focus-visible { outline: 3px solid var(--cor-informacao); outline-offset: 2px; }
+@media (min-width: 620px) { .acampamento__controles { grid-template-columns: minmax(13rem, 1fr) auto auto; align-items: end; } .acampamento__lista { grid-template-columns: repeat(2, 1fr); } .acampamento__acoes-dialogo { flex-direction: row; justify-content: flex-end; } }

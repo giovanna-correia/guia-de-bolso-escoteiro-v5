@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="theme-color" content="#566944">
+    <title>Membros e Acessos | Administração</title><link rel="icon" href="../../../recursos/imagens/icones/marca.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="../../../compartilhado/estilos/variaveis.css"><link rel="stylesheet" href="../../../componentes/cabecalho-administrativo/cabecalho-administrativo.css"><link rel="stylesheet" href="../../../componentes/menu-administrativo/menu-administrativo.css"><link rel="stylesheet" href="../../../componentes/modal-confirmacao/modal-confirmacao.css"><link rel="stylesheet" href="../../../componentes/mensagem-retorno/mensagem-retorno.css"><link rel="stylesheet" href="../../../componentes/indicador-situacao/indicador-situacao.css"><link rel="stylesheet" href="./membros-listagem.css">
+  </head>
+  <body data-raiz="../../../">
+    <div id="menu-administrativo"></div><div id="cabecalho-administrativo"></div>
+    <main class="membros-listagem__principal">
+      <header class="membros-listagem__topo"><div><p class="membros-listagem__etiqueta">ACESSOS LOCAIS</p><h2 class="membros-listagem__titulo">Membros e Acessos</h2></div><a class="membros-listagem__adicionar" href="../membro-formulario/index.html">+ Cadastrar membro</a></header>
+      <section class="membros-listagem__filtros" aria-label="Filtros de membros"><div><label for="filtro-pesquisa">Nome ou registro</label><input id="filtro-pesquisa" type="search" placeholder="Pesquisar"></div><div><label for="filtro-perfil">Perfil</label><select id="filtro-perfil"><option value="">Todos</option><option value="jovem_beneficiario">Jovem beneficiário</option><option value="escotista">Escotista</option></select></div><div><label for="filtro-secao">Seção</label><select id="filtro-secao"><option value="">Todas</option></select></div><div><label for="filtro-situacao">Situação</label><select id="filtro-situacao"><option value="">Todas</option><option value="ativo">Ativo</option><option value="inativo">Inativo</option></select></div></section>
+      <p id="resumo-membros" class="membros-listagem__resumo" aria-live="polite"></p><section id="lista-membros" class="membros-listagem__lista" aria-label="Membros cadastrados"></section>
+    </main>
+    <script type="module" src="./membros-listagem.ts"></script>
+  </body>
+</html>

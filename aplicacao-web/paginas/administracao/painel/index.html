@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="theme-color" content="#566944">
+    <title>Painel Geral | Administração Escoteira</title><link rel="icon" href="../../../recursos/imagens/icones/marca.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="../../../compartilhado/estilos/variaveis.css"><link rel="stylesheet" href="../../../componentes/cabecalho-administrativo/cabecalho-administrativo.css"><link rel="stylesheet" href="../../../componentes/menu-administrativo/menu-administrativo.css"><link rel="stylesheet" href="../../../componentes/modal-confirmacao/modal-confirmacao.css"><link rel="stylesheet" href="../../../componentes/indicador-situacao/indicador-situacao.css"><link rel="stylesheet" href="./painel.css">
+  </head>
+  <body data-raiz="../../../">
+    <div id="menu-administrativo"></div><div id="cabecalho-administrativo"></div>
+    <main class="painel-administrativo__principal">
+      <section aria-labelledby="titulo-visao"><div class="painel-administrativo__titulo-linha"><div><p class="painel-administrativo__etiqueta">VISÃO DO GRUPO</p><h2 id="titulo-visao" class="painel-administrativo__titulo">Situação geral</h2></div><a class="painel-administrativo__guia" href="../../jovem/inicio/index.html">Abrir Guia de Bolso</a></div><div id="indicadores" class="painel-administrativo__indicadores"></div></section>
+      <section aria-labelledby="titulo-acoes"><h2 id="titulo-acoes" class="painel-administrativo__subtitulo">Ações rápidas</h2><nav class="painel-administrativo__acoes" aria-label="Ações administrativas"><a href="../membro-formulario/index.html">Cadastrar membro</a><a href="../material-formulario/index.html">Cadastrar material</a><a href="../kit-formulario/index.html">Criar kit</a><a href="../atividade-formulario/index.html">Criar atividade</a><a href="../conferencias-listagem/index.html#nova-conferencia">Iniciar conferência</a><a href="../necessidade-formulario/index.html">Registrar necessidade</a></nav></section>
+      <div class="painel-administrativo__colunas"><section aria-labelledby="titulo-alertas"><h2 id="titulo-alertas" class="painel-administrativo__subtitulo">Alertas</h2><div id="alertas" class="painel-administrativo__lista"></div></section><section aria-labelledby="titulo-movimentacoes"><h2 id="titulo-movimentacoes" class="painel-administrativo__subtitulo">Últimas movimentações</h2><div id="movimentacoes" class="painel-administrativo__lista"></div></section></div>
+    </main>
+    <script type="module" src="./painel.ts"></script>
+  </body>
+</html>

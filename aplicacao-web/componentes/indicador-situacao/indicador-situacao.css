@@ -1,0 +1,6 @@
+.indicador-situacao { display: inline-flex; align-items: center; min-height: 1.75rem; padding: 0.25rem 0.6rem; border-radius: 999px; font: 700 0.75rem/1.1 var(--fonte-corpo); white-space: nowrap; }
+.indicador-situacao::before { width: 0.45rem; height: 0.45rem; margin-right: 0.4rem; border-radius: 50%; background: currentColor; content: ""; }
+.indicador-situacao--sucesso { color: var(--cor-sucesso); background: #e6f4e8; }
+.indicador-situacao--aviso { color: var(--cor-aviso); background: #fff2d7; }
+.indicador-situacao--perigo { color: var(--cor-perigo); background: #fdeaea; }
+.indicador-situacao--informacao { color: var(--cor-informacao); background: #e6f1f5; }

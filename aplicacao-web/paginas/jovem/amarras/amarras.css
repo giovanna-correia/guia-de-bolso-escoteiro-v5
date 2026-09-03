@@ -1,0 +1,19 @@
+* { box-sizing: border-box; }
+html { min-width: 320px; background: var(--cor-fundo); }
+body { min-height: 100dvh; margin: 0; color: var(--cor-texto-principal); background: var(--cor-fundo); font-family: var(--fonte-corpo); }
+.amarras__principal { width: min(100% - 2rem, 66rem); margin: 0 auto; padding: 1.5rem 0 calc(2rem + env(safe-area-inset-bottom)); }
+.amarras__cabecalho { max-width: 48rem; margin: 0 auto 1.5rem; }
+.amarras__etiqueta { margin: 0; color: var(--cor-primaria); font-size: 0.75rem; font-weight: 700; letter-spacing: 0.1em; text-align: center; }
+.amarras__titulo { margin: 0.4rem 0 1rem; color: var(--cor-primaria-escura); font: 700 2.4rem/1 var(--fonte-titulo); text-align: center; }
+.amarras__introducao { margin: 0; white-space: pre-line; line-height: 1.65; }
+.amarras__lista { display: grid; gap: 1rem; }
+.amarras__cartao { display: grid; overflow: hidden; background: var(--cor-superficie); border: 1px solid var(--cor-borda); border-radius: var(--raio-grande); box-shadow: var(--sombra-suave); }
+.amarras__visual { min-height: 150px; display: grid; place-items: center; padding: 1rem; color: var(--cor-superficie); background: linear-gradient(145deg, var(--cor-secundaria), var(--cor-primaria)); text-align: center; }
+.amarras__visual span { max-width: 14rem; font-size: 0.75rem; line-height: 1.4; }
+.amarras__conteudo { padding: 1.15rem; }
+.amarras__nome { margin: 0; font: 700 1.55rem var(--fonte-titulo); }
+.amarras__descricao { min-height: 3rem; margin: 0.5rem 0 1rem; color: var(--cor-texto-secundario); line-height: 1.5; }
+.amarras__video { min-height: 44px; display: flex; align-items: center; justify-content: center; padding: 0.65rem; color: var(--cor-superficie); background: var(--cor-primaria); border-radius: var(--raio-pequeno); font-weight: 700; text-decoration: none; }
+.amarras__video:hover { background: var(--cor-primaria-escura); }
+.amarras__video:focus-visible { outline: 3px solid var(--cor-informacao); outline-offset: 3px; }
+@media (min-width: 680px) { .amarras__lista { grid-template-columns: repeat(2, 1fr); } }

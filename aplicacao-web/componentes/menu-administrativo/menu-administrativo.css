@@ -1,0 +1,19 @@
+.menu-administrativo__gaveta { position: fixed; z-index: 60; inset: 0 auto 0 0; display: flex; width: min(88vw, 280px); padding: calc(1rem + env(safe-area-inset-top)) 0.85rem calc(1rem + env(safe-area-inset-bottom)); flex-direction: column; color: var(--cor-superficie); background: var(--cor-primaria-escura); transform: translateX(-105%); transition: transform 180ms ease; }
+.menu-administrativo__topo { display: flex; min-height: 48px; align-items: center; justify-content: space-between; padding: 0 0.55rem; }
+.menu-administrativo__marca { font: 700 1.35rem var(--fonte-titulo); }
+.menu-administrativo__fechar { width: 44px; height: 44px; color: var(--cor-superficie); background: transparent; border: 0; border-radius: 50%; font-size: 2rem; cursor: pointer; }
+.menu-administrativo__navegacao { display: grid; gap: 0.15rem; margin-top: 1rem; overflow-y: auto; }
+.menu-administrativo__link { display: flex; min-height: 44px; align-items: center; padding: 0.65rem 0.7rem; color: var(--cor-superficie); border-radius: var(--raio-pequeno); font: 600 0.82rem/1.25 var(--fonte-corpo); text-decoration: none; }
+.menu-administrativo__link:hover, .menu-administrativo__link:focus-visible { background: var(--cor-primaria); }
+.menu-administrativo__acao { min-height: 44px; margin-top: auto; padding: 0.55rem; color: var(--cor-superficie); background: transparent; border: 1px solid var(--cor-secundaria); border-radius: var(--raio-pequeno); font: 600 0.75rem var(--fonte-corpo); cursor: pointer; }
+.menu-administrativo__acao--sair { margin-top: 0.5rem; color: var(--cor-primaria-escura); background: var(--cor-superficie); }
+.menu-administrativo__fundo { position: fixed; z-index: 55; inset: 0; display: none; width: 100%; background: var(--cor-sobreposicao); border: 0; }
+.menu-administrativo--aberto { overflow: hidden; }
+.menu-administrativo--aberto .menu-administrativo__gaveta { transform: translateX(0); }
+.menu-administrativo--aberto .menu-administrativo__fundo { display: block; }
+.menu-administrativo__fechar:focus-visible, .menu-administrativo__acao:focus-visible { outline: 3px solid var(--cor-superficie); outline-offset: 2px; }
+
+@media (min-width: 1024px) {
+  .menu-administrativo__gaveta { width: 280px; transform: translateX(0); }
+  .menu-administrativo__fechar, .menu-administrativo__fundo { display: none; }
+}

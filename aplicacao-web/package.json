@@ -1,0 +1,17 @@
+{
+  "name": "guia-de-bolso-escoteiro-web",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "verificar-tipos": "tsc --noEmit",
+    "build": "npm run verificar-tipos && vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.2",
+    "typescript": "^5.9.2",
+    "vite": "6.4.3"
+  }
+}

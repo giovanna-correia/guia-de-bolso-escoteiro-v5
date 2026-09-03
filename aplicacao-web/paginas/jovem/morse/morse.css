@@ -1,0 +1,23 @@
+* { box-sizing: border-box; }
+html { min-width: 320px; background: var(--cor-fundo); }
+body { min-height: 100dvh; margin: 0; color: var(--cor-texto-principal); background: var(--cor-fundo); font-family: var(--fonte-corpo); }
+.morse__principal { width: min(100% - 2rem, 62rem); margin: 0 auto; padding: 1.5rem 0 calc(2rem + env(safe-area-inset-bottom)); }
+.morse__cabecalho { max-width: 48rem; margin: 0 auto 1.4rem; }
+.morse__etiqueta { margin: 0; color: var(--cor-primaria); font-size: 0.75rem; font-weight: 700; letter-spacing: 0.1em; text-align: center; }
+.morse__titulo { margin: 0.4rem 0 1rem; color: var(--cor-primaria-escura); font: 700 2.4rem/1 var(--fonte-titulo); text-align: center; }
+.morse__introducao { margin: 0; line-height: 1.65; }
+.morse__conversor { display: grid; gap: 0.5rem; padding: 1.15rem; background: var(--cor-superficie); border: 1px solid var(--cor-borda); border-radius: var(--raio-grande); box-shadow: var(--sombra-suave); }
+.morse__subtitulo { margin: 0 0 0.4rem; font: 700 1.55rem var(--fonte-titulo); }
+.morse__subtitulo--tabela { margin: 1.5rem 0 0.8rem; }
+.morse__campo { width: 100%; min-height: 100px; resize: vertical; padding: 0.75rem; color: var(--cor-texto-principal); background: var(--cor-superficie); border: 1px solid var(--cor-borda); border-radius: var(--raio-pequeno); font: 1rem/1.5 var(--fonte-corpo); }
+.morse__resultado { min-height: 100px; display: grid; align-content: start; gap: 0.65rem; padding: 1rem; background: var(--cor-terciaria); border-radius: var(--raio-medio); overflow-wrap: anywhere; }
+.morse__resultado strong { color: var(--cor-primaria); font-size: 0.8rem; text-transform: uppercase; }
+.morse__resultado output { font: 700 1.15rem/1.65 var(--fonte-corpo); }
+.morse__botao { min-height: 44px; justify-self: start; padding: 0.65rem 1rem; color: var(--cor-superficie); background: var(--cor-primaria); border: 0; border-radius: var(--raio-pequeno); font: 700 0.85rem var(--fonte-corpo); cursor: pointer; }
+.morse__tabela { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.5rem; }
+.morse__simbolo { min-height: 62px; display: grid; place-items: center; padding: 0.45rem; background: var(--cor-superficie); border: 1px solid var(--cor-borda); border-radius: var(--raio-pequeno); }
+.morse__simbolo strong { color: var(--cor-primaria); }
+.morse__simbolo span { font-size: 0.8rem; letter-spacing: 0.05em; }
+.morse__campo:focus-visible, .morse__botao:focus-visible { outline: 3px solid var(--cor-informacao); outline-offset: 2px; }
+@media (min-width: 480px) { .morse__tabela { grid-template-columns: repeat(5, 1fr); } }
+@media (min-width: 768px) { .morse__conversor { padding: 1.5rem; } .morse__tabela { grid-template-columns: repeat(8, 1fr); } }

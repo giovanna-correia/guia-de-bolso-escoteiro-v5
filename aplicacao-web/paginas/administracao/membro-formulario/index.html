@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="theme-color" content="#566944"><title>Cadastro de Membro | Administração</title><link rel="icon" href="../../../recursos/imagens/icones/marca.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="../../../compartilhado/estilos/variaveis.css"><link rel="stylesheet" href="../../../componentes/cabecalho-administrativo/cabecalho-administrativo.css"><link rel="stylesheet" href="../../../componentes/menu-administrativo/menu-administrativo.css"><link rel="stylesheet" href="../../../componentes/modal-confirmacao/modal-confirmacao.css"><link rel="stylesheet" href="../../../componentes/mensagem-retorno/mensagem-retorno.css"><link rel="stylesheet" href="./membro-formulario.css">
+  </head>
+  <body data-raiz="../../../"><div id="menu-administrativo"></div><div id="cabecalho-administrativo"></div>
+    <main class="membro-formulario__principal"><a class="membro-formulario__voltar" href="../membros-listagem/index.html">← Voltar para membros</a><header><p class="membro-formulario__etiqueta">MEMBRO E ACESSO</p><h2 id="titulo-formulario" class="membro-formulario__titulo">Cadastrar membro</h2></header>
+      <form id="formulario-membro" class="membro-formulario__formulario" novalidate>
+        <div class="membro-formulario__grupo membro-formulario__grupo--largo"><label for="campo-nome">Nome completo</label><input id="campo-nome" maxlength="120" required><p id="erro-nome" class="membro-formulario__erro"></p></div>
+        <div class="membro-formulario__grupo"><label for="campo-registro">Número do registro</label><input id="campo-registro" maxlength="30" required><p id="erro-registro" class="membro-formulario__erro"></p></div>
+        <div class="membro-formulario__grupo"><label for="campo-pin">PIN inicial</label><input id="campo-pin" inputmode="numeric" maxlength="4" required><p id="erro-pin" class="membro-formulario__erro"></p></div>
+        <div class="membro-formulario__grupo"><label for="campo-perfil">Perfil</label><select id="campo-perfil" required><option value="">Selecione</option><option value="jovem_beneficiario">Jovem beneficiário</option><option value="escotista">Escotista</option></select><p id="erro-perfil" class="membro-formulario__erro"></p></div>
+        <div class="membro-formulario__grupo"><label for="campo-situacao">Situação</label><select id="campo-situacao"><option value="ativo">Ativo</option><option value="inativo">Inativo</option></select><p class="membro-formulario__erro"></p></div>
+        <div class="membro-formulario__grupo"><label for="campo-secao">Seção</label><select id="campo-secao"><option value="">Selecione</option></select><p id="erro-secao" class="membro-formulario__erro"></p></div>
+        <div class="membro-formulario__grupo"><label for="campo-patrulha">Patrulha ou equipe</label><select id="campo-patrulha"><option value="">Não informada</option></select><p id="erro-patrulha" class="membro-formulario__erro"></p></div>
+        <p id="erro-geral" class="membro-formulario__erro membro-formulario__erro--geral" role="alert"></p>
+        <footer class="membro-formulario__acoes"><a href="../membros-listagem/index.html">Cancelar</a><button type="submit">Salvar membro</button></footer>
+      </form>
+    </main><script type="module" src="./membro-formulario.ts"></script>
+  </body>
+</html>

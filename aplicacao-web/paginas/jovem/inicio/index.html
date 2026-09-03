@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#566944">
+    <title>Início | Guia de Bolso Escoteiro</title><link rel="icon" href="../../../recursos/imagens/icones/marca.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="../../../compartilhado/estilos/variaveis.css">
+    <link rel="stylesheet" href="../../../componentes/cabecalho-jovem/cabecalho-jovem.css">
+    <link rel="stylesheet" href="../../../componentes/mensagem-retorno/mensagem-retorno.css">
+    <link rel="stylesheet" href="./inicio.css">
+  </head>
+  <body data-raiz="../../../">
+    <div id="cabecalho-jovem"></div>
+    <main class="jovem-inicio__principal">
+      <section class="jovem-inicio__boas-vindas">
+        <div>
+          <p class="jovem-inicio__chamada">Sempre alerta!</p>
+          <h1 id="saudacao" class="jovem-inicio__titulo">Olá!</h1>
+          <p id="nome-secao" class="jovem-inicio__secao"></p>
+          <p class="jovem-inicio__descricao">Seu guia rápido para aprender, revisar e se preparar para a próxima atividade.</p>
+        </div>
+        <img class="jovem-inicio__imagem" src="../../../recursos/imagens/jovem/placeholder-guia.svg" alt="Barraca escoteira em uma paisagem natural">
+      </section>
+      <section aria-labelledby="titulo-secoes">
+        <h2 id="titulo-secoes" class="jovem-inicio__subtitulo">Selecione uma seção</h2>
+        <nav class="jovem-inicio__atalhos" aria-label="Conteúdos do guia">
+          <a class="jovem-inicio__atalho" href="../nos-listagem/index.html"><span>Nós</span><small>Conheça os principais nós</small></a>
+          <a class="jovem-inicio__atalho" href="../amarras/index.html"><span>Amarras</span><small>Construa com segurança</small></a>
+          <a class="jovem-inicio__atalho" href="../acampamento/index.html"><span>Acampamento</span><small>Prepare sua mochila</small></a>
+          <a class="jovem-inicio__atalho" href="../leis/index.html"><span>Leis Escoteiras</span><small>Valores para o dia a dia</small></a>
+          <a class="jovem-inicio__atalho" href="../bussola/index.html"><span>Bússola</span><small>Encontre sua direção</small></a>
+          <a class="jovem-inicio__atalho" href="../morse/index.html"><span>Código Morse</span><small>Converta suas mensagens</small></a>
+        </nav>
+        <a class="jovem-inicio__sobre" href="../sobre/index.html">Conheça o projeto</a>
+      </section>
+    </main>
+    <script type="module" src="./inicio.ts"></script>
+  </body>
+</html>

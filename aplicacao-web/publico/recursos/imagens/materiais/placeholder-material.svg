@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 220" role="img" aria-labelledby="titulo">
+  <title id="titulo">Imagem temporária de material</title>
+  <rect width="320" height="220" rx="24" fill="#e7ecdf"/>
+  <path d="M76 75h168v105H76z" fill="#9aaa84"/>
+  <path d="M116 52h88l18 30H98z" fill="#566944"/>
+  <path d="M151 96h18v45h-18z" fill="#f5f6f1"/>
+</svg>

@@ -1,0 +1,24 @@
+.mensagem-retorno {
+  position: fixed;
+  z-index: 90;
+  right: 1rem;
+  bottom: calc(1rem + env(safe-area-inset-bottom));
+  left: 1rem;
+  max-width: 34rem;
+  margin: 0 auto;
+  padding: 0.85rem 1rem;
+  color: var(--cor-superficie);
+  font: 600 0.9rem/1.4 var(--fonte-corpo);
+  border-radius: var(--raio-medio);
+  box-shadow: var(--sombra-media);
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(1rem);
+  transition: opacity 180ms ease, transform 180ms ease;
+}
+
+.mensagem-retorno--visivel { opacity: 1; transform: translateY(0); }
+.mensagem-retorno--sucesso { background: var(--cor-sucesso); }
+.mensagem-retorno--aviso { background: var(--cor-aviso); }
+.mensagem-retorno--erro { background: var(--cor-perigo); }
+.mensagem-retorno--informacao { background: var(--cor-informacao); }

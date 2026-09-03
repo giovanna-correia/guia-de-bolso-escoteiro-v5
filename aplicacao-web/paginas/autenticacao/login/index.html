@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#566944">
+    <title>Acesso | Guia de Bolso Escoteiro</title><link rel="icon" href="../../../recursos/imagens/icones/marca.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="../../../compartilhado/estilos/variaveis.css">
+    <link rel="stylesheet" href="../../../componentes/mensagem-retorno/mensagem-retorno.css">
+    <link rel="stylesheet" href="./login.css">
+  </head>
+  <body data-raiz="../../../">
+    <main class="login__pagina">
+      <section class="login__apresentacao" aria-labelledby="titulo-login">
+        <p class="login__marca">GUIA DE BOLSO ESCOTEIRO</p>
+        <h1 id="titulo-login" class="login__titulo">Sempre alerta para aprender e organizar.</h1>
+        <p class="login__descricao">Conteúdo escoteiro para jovens e gestão de atividades e materiais para escotistas.</p>
+      </section>
+      <section class="login__cartao" aria-labelledby="titulo-acesso">
+        <h2 id="titulo-acesso" class="login__subtitulo">Acessar</h2>
+        <p class="login__orientacao">Use seu registro escoteiro e PIN de quatro dígitos.</p>
+        <form id="formulario-login" class="login__formulario" novalidate>
+          <label class="login__rotulo" for="campo-numero-registro">Registro escoteiro</label>
+          <input class="login__campo" id="campo-numero-registro" name="numeroRegistro" inputmode="numeric" autocomplete="username" required>
+          <p id="erro-registro" class="login__erro" aria-live="polite"></p>
+          <label class="login__rotulo" for="campo-pin">PIN</label>
+          <input class="login__campo" id="campo-pin" name="pin" type="password" inputmode="numeric" maxlength="4" autocomplete="current-password" required>
+          <p id="erro-pin" class="login__erro" aria-live="polite"></p>
+          <p id="erro-login" class="login__erro login__erro--geral" role="alert"></p>
+          <button class="login__botao" type="submit">Entrar</button>
+        </form>
+        <aside class="login__demonstracao" aria-label="Credenciais demonstrativas">
+          <strong>Dados para demonstração</strong>
+          <span>Escotista: 000001 / 1234</span>
+          <span>Jovem: 100001 / 1111</span>
+        </aside>
+        <p class="login__aviso">Acesso demonstrativo local. Não use dados reais ou sensíveis.</p>
+      </section>
+    </main>
+    <script type="module" src="./login.ts"></script>
+  </body>
+</html>

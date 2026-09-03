@@ -1,0 +1,10 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="theme-color" content="#566944"><title>Kits de Campo | Administração</title><link rel="icon" href="../../../recursos/imagens/icones/marca.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="../../../compartilhado/estilos/variaveis.css"><link rel="stylesheet" href="../../../componentes/cabecalho-administrativo/cabecalho-administrativo.css"><link rel="stylesheet" href="../../../componentes/menu-administrativo/menu-administrativo.css"><link rel="stylesheet" href="../../../componentes/modal-confirmacao/modal-confirmacao.css"><link rel="stylesheet" href="../../../componentes/indicador-situacao/indicador-situacao.css"><link rel="stylesheet" href="./kits-listagem.css">
+  </head>
+  <body data-raiz="../../../"><div id="menu-administrativo"></div><div id="cabecalho-administrativo"></div>
+    <main class="kits-listagem__principal"><header class="kits-listagem__topo"><div><p class="kits-listagem__etiqueta">CONJUNTOS DE CAMPO</p><h2 class="kits-listagem__titulo">Kits de Campo</h2></div><a class="kits-listagem__adicionar" href="../kit-formulario/index.html">+ Criar kit</a></header><section class="kits-listagem__filtros"><div><label for="filtro-pesquisa">Nome do kit</label><input id="filtro-pesquisa" type="search" placeholder="Pesquisar"></div><div><label for="filtro-tipo">Tipo</label><select id="filtro-tipo"><option value="">Todos</option><option value="caixa_patrulha">Caixa de patrulha</option><option value="cozinha">Cozinha</option><option value="pioneiria">Pioneiria</option><option value="primeiros_socorros">Primeiros socorros</option><option value="limpeza">Limpeza</option><option value="cerimonia">Cerimônia</option><option value="acampamento">Acampamento</option><option value="outro">Outro</option></select></div></section><p id="resumo-kits" class="kits-listagem__resumo"></p><section id="lista-kits" class="kits-listagem__lista" aria-label="Kits cadastrados"></section></main><script type="module" src="./kits-listagem.ts"></script>
+  </body>
+</html>

@@ -1,0 +1,26 @@
+* { box-sizing: border-box; }
+html { min-width: 320px; background: var(--cor-fundo); }
+body { min-height: 100dvh; margin: 0; color: var(--cor-texto-principal); background: var(--cor-fundo); font-family: var(--fonte-corpo); }
+.jovem-inicio__principal { width: min(100% - 2rem, 72rem); margin: 0 auto; padding: 1.25rem 0 calc(2rem + env(safe-area-inset-bottom)); }
+.jovem-inicio__boas-vindas { display: grid; gap: 1rem; padding: 1.4rem; background: var(--cor-terciaria); border-radius: var(--raio-grande); overflow: hidden; }
+.jovem-inicio__chamada { margin: 0 0 0.35rem; color: var(--cor-primaria); font-size: 0.8rem; font-weight: 700; letter-spacing: 0.09em; text-transform: uppercase; }
+.jovem-inicio__titulo { margin: 0; color: var(--cor-primaria-escura); font: 700 clamp(2rem, 9vw, 3.3rem)/1 var(--fonte-titulo); }
+.jovem-inicio__secao { margin: 0.6rem 0 0; color: var(--cor-primaria); font-weight: 700; }
+.jovem-inicio__descricao { max-width: 34rem; margin: 0.75rem 0 0; color: var(--cor-texto-secundario); line-height: 1.55; }
+.jovem-inicio__imagem { width: 100%; max-height: 16rem; object-fit: cover; border-radius: var(--raio-medio); }
+.jovem-inicio__subtitulo { margin: 1.6rem 0 1rem; font: 700 1.55rem var(--fonte-titulo); }
+.jovem-inicio__atalhos { display: grid; gap: 0.85rem; }
+.jovem-inicio__atalho { position: relative; min-height: 88px; display: grid; align-content: center; padding: 1rem 3rem 1rem 1.1rem; color: var(--cor-texto-principal); background: var(--cor-superficie); border: 1px solid var(--cor-borda); border-radius: var(--raio-medio); box-shadow: var(--sombra-suave); text-decoration: none; }
+.jovem-inicio__atalho::after { position: absolute; right: 1.1rem; top: 50%; color: var(--cor-primaria); font-size: 1.5rem; content: "›"; transform: translateY(-50%); }
+.jovem-inicio__atalho span { color: var(--cor-primaria-escura); font: 700 1.35rem var(--fonte-titulo); }
+.jovem-inicio__atalho small { margin-top: 0.2rem; color: var(--cor-texto-secundario); font-size: 0.78rem; }
+.jovem-inicio__atalho:hover { border-color: var(--cor-primaria); transform: translateY(-2px); }
+.jovem-inicio__atalho:focus-visible, .jovem-inicio__sobre:focus-visible { outline: 3px solid var(--cor-informacao); outline-offset: 3px; }
+.jovem-inicio__sobre { display: block; width: fit-content; min-height: 44px; margin: 1rem auto 0; padding: 0.7rem 1rem; color: var(--cor-primaria); font-weight: 700; text-decoration: none; }
+
+@media (min-width: 768px) {
+  .jovem-inicio__principal { padding-top: 2rem; }
+  .jovem-inicio__boas-vindas { grid-template-columns: 1.15fr 0.85fr; align-items: center; padding: 2rem; }
+  .jovem-inicio__atalhos { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (min-width: 1024px) { .jovem-inicio__atalhos { grid-template-columns: repeat(3, minmax(0, 1fr)); } }

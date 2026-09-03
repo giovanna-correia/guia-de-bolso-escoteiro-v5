@@ -1,0 +1,23 @@
+* { box-sizing: border-box; }
+html { min-width: 320px; background: var(--cor-fundo); }
+body { min-height: 100dvh; margin: 0; color: var(--cor-texto-principal); background: var(--cor-fundo); font-family: var(--fonte-corpo); }
+.bussola__principal { width: min(100% - 2rem, 48rem); margin: 0 auto; padding: 1.5rem 0 calc(2rem + env(safe-area-inset-bottom)); }
+.bussola__cabecalho { max-width: 42rem; margin: 0 auto 1.3rem; }
+.bussola__etiqueta { margin: 0; color: var(--cor-primaria); font-size: 0.75rem; font-weight: 700; letter-spacing: 0.1em; text-align: center; }
+.bussola__titulo { margin: 0.4rem 0 1rem; color: var(--cor-primaria-escura); font: 700 2.4rem/1 var(--fonte-titulo); text-align: center; }
+.bussola__introducao { margin: 0; line-height: 1.65; }
+.bussola__painel { display: grid; justify-items: center; gap: 1rem; padding: 1.25rem; background: var(--cor-superficie); border: 1px solid var(--cor-borda); border-radius: var(--raio-grande); box-shadow: var(--sombra-suave); }
+.bussola__mostrador { position: relative; width: min(75vw, 280px); aspect-ratio: 1; display: grid; place-items: center; color: var(--cor-primaria-escura); background: radial-gradient(circle, var(--cor-superficie) 0 48%, var(--cor-terciaria) 49% 100%); border: 4px solid var(--cor-primaria); border-radius: 50%; font-weight: 700; }
+.bussola__norte, .bussola__leste, .bussola__sul, .bussola__oeste { position: absolute; }
+.bussola__norte { top: 0.8rem; color: var(--cor-perigo); }.bussola__leste { right: 1rem; }.bussola__sul { bottom: 0.8rem; }.bussola__oeste { left: 1rem; }
+.bussola__agulha { color: var(--cor-perigo); font-size: 5.5rem; line-height: 1; transform-origin: 50% 57%; transition: transform 180ms linear; }
+.bussola__resultado { display: grid; justify-items: center; }
+.bussola__resultado strong { color: var(--cor-primaria-escura); font: 700 2.2rem var(--fonte-titulo); }
+.bussola__resultado span { color: var(--cor-texto-secundario); font-size: 0.85rem; font-weight: 700; }
+.bussola__aviso { margin: 0; color: var(--cor-texto-secundario); line-height: 1.5; text-align: center; }
+.bussola__acoes { width: 100%; display: grid; gap: 0.6rem; }
+.bussola__botao { min-height: 46px; padding: 0.7rem 1rem; color: var(--cor-superficie); background: var(--cor-primaria); border: 1px solid var(--cor-primaria); border-radius: var(--raio-pequeno); font: 700 0.85rem var(--fonte-corpo); cursor: pointer; }
+.bussola__botao--secundario { color: var(--cor-primaria); background: var(--cor-superficie); }
+.bussola__botao:disabled { cursor: not-allowed; opacity: 0.45; }
+.bussola__botao:focus-visible { outline: 3px solid var(--cor-informacao); outline-offset: 2px; }
+@media (min-width: 540px) { .bussola__acoes { grid-template-columns: 1fr 1fr; } }

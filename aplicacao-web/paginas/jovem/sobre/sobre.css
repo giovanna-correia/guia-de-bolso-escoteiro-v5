@@ -1,0 +1,10 @@
+* { box-sizing: border-box; }
+html { min-width: 320px; background: var(--cor-fundo); }
+body { min-height: 100dvh; margin: 0; color: var(--cor-texto-principal); background: var(--cor-fundo); font-family: var(--fonte-corpo); }
+.sobre__principal { width: min(100% - 2rem, 48rem); margin: 0 auto; padding: 1.5rem 0 calc(2rem + env(safe-area-inset-bottom)); }
+.sobre__cartao { padding: 1.3rem; background: var(--cor-superficie); border: 1px solid var(--cor-borda); border-radius: var(--raio-grande); box-shadow: var(--sombra-suave); }
+.sobre__icone { width: 68px; height: 68px; display: grid; place-items: center; margin: 0 auto 1rem; color: var(--cor-primaria); background: var(--cor-terciaria); border: 2px solid var(--cor-primaria); border-radius: 50%; font-size: 2rem; }
+.sobre__etiqueta { margin: 0; color: var(--cor-primaria); font-size: 0.75rem; font-weight: 700; letter-spacing: 0.1em; text-align: center; }
+.sobre__titulo { margin: 0.4rem 0 1.3rem; color: var(--cor-primaria-escura); font: 700 2.3rem/1.05 var(--fonte-titulo); text-align: center; }
+.sobre__cartao p:not(.sobre__etiqueta) { margin: 0 0 1rem; line-height: 1.7; }
+@media (min-width: 768px) { .sobre__cartao { padding: 2.2rem; } }

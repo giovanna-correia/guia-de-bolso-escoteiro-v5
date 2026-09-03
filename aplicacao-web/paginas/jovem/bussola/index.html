@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="theme-color" content="#566944">
+    <title>Bússola | Guia de Bolso</title><link rel="icon" href="../../../recursos/imagens/icones/marca.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="../../../compartilhado/estilos/variaveis.css"><link rel="stylesheet" href="../../../componentes/cabecalho-jovem/cabecalho-jovem.css"><link rel="stylesheet" href="./bussola.css">
+  </head>
+  <body data-raiz="../../../">
+    <div id="cabecalho-jovem"></div>
+    <main class="bussola__principal">
+      <header class="bussola__cabecalho"><p class="bussola__etiqueta">ORIENTAÇÃO</p><h1 class="bussola__titulo">Bússola</h1><p class="bussola__introducao">Use a bússola para se orientar em atividades ao ar livre. Para melhorar a precisão, mova o celular em formato de 8 antes da leitura.</p></header>
+      <section class="bussola__painel" aria-label="Leitura da bússola">
+        <div class="bussola__mostrador" aria-hidden="true"><span class="bussola__norte">N</span><span class="bussola__leste">L</span><span class="bussola__sul">S</span><span class="bussola__oeste">O</span><span id="agulha" class="bussola__agulha">▲</span></div>
+        <output id="resultado-bussola" class="bussola__resultado" aria-live="polite"><strong>--°</strong><span>Aguardando sensor</span></output>
+        <p id="aviso-bussola" class="bussola__aviso" role="status">Verificando a disponibilidade do sensor…</p>
+        <div class="bussola__acoes"><button id="botao-permissao" class="bussola__botao" type="button">Ativar bússola</button><button id="botao-pausar" class="bussola__botao bussola__botao--secundario" type="button" disabled>Pausar leitura</button></div>
+      </section>
+    </main>
+    <script type="module" src="./bussola.ts"></script>
+  </body>
+</html>

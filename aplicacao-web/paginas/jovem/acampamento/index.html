@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="theme-color" content="#566944">
+    <title>Checklist de Acampamento | Guia de Bolso</title><link rel="icon" href="../../../recursos/imagens/icones/marca.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="../../../compartilhado/estilos/variaveis.css"><link rel="stylesheet" href="../../../componentes/cabecalho-jovem/cabecalho-jovem.css"><link rel="stylesheet" href="../../../componentes/modal-confirmacao/modal-confirmacao.css"><link rel="stylesheet" href="../../../componentes/mensagem-retorno/mensagem-retorno.css"><link rel="stylesheet" href="./acampamento.css">
+  </head>
+  <body data-raiz="../../../">
+    <div id="cabecalho-jovem"></div>
+    <main class="acampamento__principal">
+      <header class="acampamento__cabecalho"><p class="acampamento__etiqueta">PREPARE SUA MOCHILA</p><h1 class="acampamento__titulo">Acampamento está chegando?</h1><p id="texto-introducao" class="acampamento__introducao"></p></header>
+      <section class="acampamento__controles" aria-label="Controles da lista">
+        <div class="acampamento__grupo-campo"><label for="campo-pesquisa">Pesquisar item</label><input id="campo-pesquisa" class="acampamento__campo" type="search" placeholder="Ex.: lanterna"></div>
+        <button id="botao-adicionar" class="acampamento__botao acampamento__botao--adicionar" type="button">+ Adicionar item</button>
+        <button id="botao-resetar" class="acampamento__botao acampamento__botao--resetar" type="button">↻ Resetar marcações</button>
+      </section>
+      <p id="resumo-lista" class="acampamento__resumo" aria-live="polite"></p>
+      <section id="lista-itens" class="acampamento__lista" aria-label="Itens para o acampamento"></section>
+      <dialog id="dialogo-adicionar" class="acampamento__dialogo" aria-labelledby="titulo-dialogo">
+        <form id="formulario-adicionar" class="acampamento__formulario" novalidate>
+          <h2 id="titulo-dialogo" class="acampamento__titulo-dialogo">Adicionar item à mochila</h2>
+          <label for="campo-novo-item">Nome do item</label><input id="campo-novo-item" class="acampamento__campo" maxlength="80" required>
+          <p id="erro-novo-item" class="acampamento__erro" aria-live="polite"></p>
+          <footer class="acampamento__acoes-dialogo"><button id="botao-cancelar" class="acampamento__botao acampamento__botao--cancelar" type="button">Cancelar</button><button class="acampamento__botao acampamento__botao--adicionar" type="submit">Adicionar</button></footer>
+        </form>
+      </dialog>
+    </main>
+    <script type="module" src="./acampamento.ts"></script>
+  </body>
+</html>

@@ -1,0 +1,16 @@
+* { box-sizing: border-box; }
+html { min-width: 320px; background: var(--cor-fundo); }
+body { min-height: 100dvh; margin: 0; color: var(--cor-texto-principal); background: var(--cor-fundo); font-family: var(--fonte-corpo); }
+.no-detalhes__principal { width: min(100% - 2rem, 50rem); margin: 0 auto; padding: 1.25rem 0 calc(2rem + env(safe-area-inset-bottom)); }
+.no-detalhes__voltar { display: inline-flex; min-height: 44px; align-items: center; color: var(--cor-primaria); font-weight: 700; text-decoration: none; }
+.no-detalhes__artigo { margin-top: 0.5rem; padding: 1.2rem; background: var(--cor-superficie); border: 1px solid var(--cor-borda); border-radius: var(--raio-grande); box-shadow: var(--sombra-suave); }
+.no-detalhes__titulo { margin: 0 0 1rem; color: var(--cor-primaria-escura); font: 700 2.4rem/1 var(--fonte-titulo); }
+.no-detalhes__video { min-height: 130px; display: flex; align-items: center; justify-content: center; margin-bottom: 1.25rem; padding: 1rem; color: var(--cor-superficie); background: linear-gradient(135deg, var(--cor-primaria), var(--cor-primaria-escura)); border-radius: var(--raio-medio); font-weight: 700; text-align: center; text-decoration: none; }
+.no-detalhes__regra { padding: 1rem; color: var(--cor-primaria-escura); background: var(--cor-terciaria); border-left: 4px solid var(--cor-primaria); border-radius: var(--raio-pequeno); line-height: 1.55; }
+.no-detalhes__subtitulo { margin: 1.5rem 0 0.7rem; font: 700 1.45rem var(--fonte-titulo); }
+.no-detalhes__lista { margin: 0; padding-left: 1.35rem; line-height: 1.65; }
+.no-detalhes__lista li + li { margin-top: 0.5rem; }
+.no-detalhes__cuidado { margin: 1.5rem 0 0; padding: 0.9rem; color: var(--cor-perigo); background: #fdeaea; border-radius: var(--raio-pequeno); font-weight: 600; }
+.no-detalhes__vazio { margin: 0; line-height: 1.6; }
+.no-detalhes__voltar:focus-visible, .no-detalhes__video:focus-visible { outline: 3px solid var(--cor-informacao); outline-offset: 3px; }
+@media (min-width: 768px) { .no-detalhes__artigo { padding: 2rem; } .no-detalhes__video { min-height: 190px; } }
