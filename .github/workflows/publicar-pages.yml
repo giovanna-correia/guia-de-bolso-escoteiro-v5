@@ -1,0 +1,70 @@
+name: Publicar aplicação web no GitHub Pages
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - "aplicacao-web/**"
+      - ".github/workflows/publicar-pages.yml"
+
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: github-pages
+  cancel-in-progress: true
+
+jobs:
+  compilar:
+    name: Compilar aplicação web
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Baixar o repositório
+        uses: actions/checkout@v6
+
+      - name: Configurar Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+          cache-dependency-path: aplicacao-web/package-lock.json
+
+      - name: Instalar dependências
+        working-directory: aplicacao-web
+        run: npm ci
+
+      - name: Verificar TypeScript
+        working-directory: aplicacao-web
+        run: npm run verificar-tipos
+
+      - name: Compilar aplicação
+        working-directory: aplicacao-web
+        run: npm run build
+
+      - name: Configurar GitHub Pages
+        uses: actions/configure-pages@v5
+
+      - name: Preparar arquivos para publicação
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: aplicacao-web/dist
+
+  publicar:
+    name: Publicar no GitHub Pages
+    needs: compilar
+    runs-on: ubuntu-latest
+
+    environment:
+      name: github-pages
+      url: ${{ steps.publicacao.outputs.page_url }}
+
+    steps:
+      - name: Publicar
+        id: publicacao
+        uses: actions/deploy-pages@v4
