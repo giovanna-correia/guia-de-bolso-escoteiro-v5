@@ -28,4 +28,5 @@ body { min-height: 100dvh; margin: 0; color: var(--cor-texto-principal); backgro
 .acampamento__erro { min-height: 1.2rem; margin: 0; color: var(--cor-perigo); font-size: 0.78rem; }
 .acampamento__acoes-dialogo { display: flex; flex-direction: column-reverse; gap: 0.6rem; margin-top: 0.7rem; }
 .acampamento__campo:focus-visible, .acampamento__botao:focus-visible, .acampamento__marcador:focus-visible, .acampamento__excluir:focus-visible { outline: 3px solid var(--cor-informacao); outline-offset: 2px; }
+.acampamento__obrigatorio { color: var(--cor-perigo); font-size: 0.68rem; }
 @media (min-width: 620px) { .acampamento__controles { grid-template-columns: minmax(13rem, 1fr) auto auto; align-items: end; } .acampamento__lista { grid-template-columns: repeat(2, 1fr); } .acampamento__acoes-dialogo { flex-direction: row; justify-content: flex-end; } }

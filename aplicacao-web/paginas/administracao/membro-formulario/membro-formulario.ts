@@ -18,8 +18,7 @@ function renderizarPatrulhas(patrulhaSelecionada = ''): void {
 }
 function validarFormulario(): boolean {
   if (!campoNome || !campoRegistro || !campoPin || !campoPerfil || !campoSecao || !campoPatrulha) return false;
-  definirErro('erro-nome', campoNome.value.trim() ? '' : 'Informe o nome completo.'); definirErro('erro-registro', campoRegistro.value.trim() ? '' : 'Informe o registro.'); definirErro('erro-pin', pinValido(campoPin.value) ? '' : 'O PIN deve ter quatro dígitos.'); definirErro('erro-perfil', campoPerfil.value ? '' : 'Selecione o perfil.');
-  const jovem = campoPerfil.value === 'jovem_beneficiario'; definirErro('erro-secao', !jovem || campoSecao.value ? '' : 'A seção é obrigatória para jovem.');
+  definirErro('erro-nome', campoNome.value.trim().length >= 3 ? '' : 'Informe o nome completo.'); definirErro('erro-registro', /^\d{4,30}$/.test(campoRegistro.value.trim()) ? '' : 'O registro deve conter somente números e ao menos quatro dígitos.'); definirErro('erro-pin', pinValido(campoPin.value) ? '' : 'O PIN deve ter quatro dígitos.'); definirErro('erro-perfil', campoPerfil.value ? '' : 'Selecione o perfil.'); definirErro('erro-secao', campoSecao.value ? '' : 'Selecione a seção do membro.');
   const patrulha = buscarPatrulhaPorId(campoPatrulha.value || null); definirErro('erro-patrulha', !patrulha || patrulha.secaoId === campoSecao.value ? '' : 'A patrulha deve pertencer à seção selecionada.');
   const duplicado = buscarUsuarioPorRegistro(campoRegistro.value); if (duplicado && duplicado.id !== usuarioEmEdicao?.id) definirErro('erro-registro', 'Este registro já está cadastrado.');
   return !['erro-nome', 'erro-registro', 'erro-pin', 'erro-perfil', 'erro-secao', 'erro-patrulha'].some((id) => document.querySelector(`#${id}`)?.textContent);

@@ -21,6 +21,7 @@ body { min-height: 100dvh; margin: 0; color: var(--cor-texto-principal); backgro
 .login__demonstracao { display: grid; gap: 0.35rem; margin-top: 1.25rem; padding: 0.85rem; color: var(--cor-primaria-escura); background: var(--cor-terciaria); border-radius: var(--raio-medio); font-size: 0.8rem; }
 .login__aviso { margin: 0.9rem 0 0; color: var(--cor-texto-secundario); font-size: 0.72rem; text-align: center; }
 
+.login__obrigatorio { color: var(--cor-perigo); font-size: 0.68rem; }
 @media (min-width: 768px) {
   .login__pagina { grid-template-columns: minmax(0, 1.1fr) minmax(22rem, 0.9fr); align-items: center; gap: 3rem; padding-inline: clamp(2rem, 7vw, 7rem); }
   .login__apresentacao, .login__cartao { margin: 0; }

@@ -71,8 +71,8 @@ export function registrarRetirada(atividade: Atividade, quantidadesPorItem: Reco
   const itensAtuais = listarItensDaAtividade(atividade.id);
   const quantidadesValidas = itensAtuais.every((item) => {
     const quantidade = quantidadesPorItem[item.id];
-    return quantidade !== undefined && Number.isFinite(quantidade) && quantidade >= 0 && quantidade <= item.quantidadeSolicitada;
-  });
+    return quantidade !== undefined && Number.isInteger(quantidade) && quantidade >= 0 && quantidade <= item.quantidadeSolicitada;
+  }) && itensAtuais.some((item) => (quantidadesPorItem[item.id] ?? 0) > 0);
   if (!quantidadesValidas) return false;
   const itens = itensAtuais.map((item) => ({ ...item, quantidadeRetirada: quantidadesPorItem[item.id] ?? 0, situacao: 'retirado' as const }));
   salvarItensDaAtividade(atividade.id, itens);

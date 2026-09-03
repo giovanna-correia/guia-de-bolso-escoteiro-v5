@@ -23,7 +23,7 @@ function redirecionarUsuario(): void {
 
 function validarCampos(): boolean {
   if (!campoRegistro || !campoPin || !erroRegistro || !erroPin) return false;
-  erroRegistro.textContent = campoRegistro.value.trim() ? '' : 'Informe o registro escoteiro.';
+  erroRegistro.textContent = /^\d{4,30}$/.test(campoRegistro.value.trim()) ? '' : 'Informe um registro escoteiro numérico válido.';
   erroPin.textContent = pinValido(campoPin.value) ? '' : 'O PIN deve conter exatamente quatro dígitos.';
   return !erroRegistro.textContent && !erroPin.textContent;
 }

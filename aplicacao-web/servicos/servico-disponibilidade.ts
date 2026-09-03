@@ -7,6 +7,10 @@ export function calcularQuantidadeDisponivel(materialId: string): number {
   if (!material) return 0;
   if (['baixado', 'danificado', 'aguardando_secagem', 'aguardando_limpeza'].includes(material.estado)) return 0;
 
+  return Math.max(0, material.quantidadeTotal - calcularQuantidadeComprometida(materialId));
+}
+
+export function calcularQuantidadeComprometida(materialId: string): number {
   const itens = listarItensAtividades();
   const reservada = itens
     .filter((item) => item.materialId === materialId && item.situacao === 'reservado')
@@ -16,5 +20,5 @@ export function calcularQuantidadeDisponivel(materialId: string): number {
     .reduce((total, item) => total + item.quantidadeRetirada - item.quantidadeDevolvida, 0);
   const manutencaoAberta = listarManutencoes().some((manutencao) => manutencao.materialId === materialId && ['pendente', 'em_andamento'].includes(manutencao.situacao));
   const emManutencao = manutencaoAberta ? 1 : 0;
-  return Math.max(0, material.quantidadeTotal - reservada - retirada - emManutencao);
+  return reservada + retirada + emManutencao;
 }

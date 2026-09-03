@@ -20,10 +20,10 @@
         <h2 id="titulo-acesso" class="login__subtitulo">Acessar</h2>
         <p class="login__orientacao">Use seu registro escoteiro e PIN de quatro dígitos.</p>
         <form id="formulario-login" class="login__formulario" novalidate>
-          <label class="login__rotulo" for="campo-numero-registro">Registro escoteiro</label>
+          <label class="login__rotulo" for="campo-numero-registro">Registro escoteiro <span class="login__obrigatorio" aria-hidden="true">*</span></label>
           <input class="login__campo" id="campo-numero-registro" name="numeroRegistro" inputmode="numeric" autocomplete="username" required>
           <p id="erro-registro" class="login__erro" aria-live="polite"></p>
-          <label class="login__rotulo" for="campo-pin">PIN</label>
+          <label class="login__rotulo" for="campo-pin">PIN <span class="login__obrigatorio" aria-hidden="true">*</span></label>
           <input class="login__campo" id="campo-pin" name="pin" type="password" inputmode="numeric" maxlength="4" autocomplete="current-password" required>
           <p id="erro-pin" class="login__erro" aria-live="polite"></p>
           <p id="erro-login" class="login__erro login__erro--geral" role="alert"></p>

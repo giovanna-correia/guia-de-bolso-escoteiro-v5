@@ -19,7 +19,7 @@
       <dialog id="dialogo-adicionar" class="acampamento__dialogo" aria-labelledby="titulo-dialogo">
         <form id="formulario-adicionar" class="acampamento__formulario" novalidate>
           <h2 id="titulo-dialogo" class="acampamento__titulo-dialogo">Adicionar item à mochila</h2>
-          <label for="campo-novo-item">Nome do item</label><input id="campo-novo-item" class="acampamento__campo" maxlength="80" required>
+          <label for="campo-novo-item">Nome do item <span class="acampamento__obrigatorio" aria-hidden="true">*</span></label><input id="campo-novo-item" class="acampamento__campo" maxlength="80" required>
           <p id="erro-novo-item" class="acampamento__erro" aria-live="polite"></p>
           <footer class="acampamento__acoes-dialogo"><button id="botao-cancelar" class="acampamento__botao acampamento__botao--cancelar" type="button">Cancelar</button><button class="acampamento__botao acampamento__botao--adicionar" type="submit">Adicionar</button></footer>
         </form>

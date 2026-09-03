@@ -6,7 +6,7 @@
   </head>
   <body data-raiz="../../../"><div id="menu-administrativo"></div><div id="cabecalho-administrativo"></div>
     <main class="membro-detalhes__principal"><a class="membro-detalhes__voltar" href="../membros-listagem/index.html">← Voltar para membros</a><article id="detalhes-membro" class="membro-detalhes__cartao" aria-live="polite"></article>
-      <dialog id="dialogo-pin" class="membro-detalhes__dialogo" aria-labelledby="titulo-novo-pin"><form id="formulario-pin" class="membro-detalhes__formulario" novalidate><h2 id="titulo-novo-pin">Redefinir PIN</h2><label for="campo-novo-pin">Novo PIN de quatro dígitos</label><input id="campo-novo-pin" inputmode="numeric" maxlength="4"><p id="erro-novo-pin" class="membro-detalhes__erro"></p><footer><button id="cancelar-pin" type="button">Cancelar</button><button type="submit">Salvar PIN</button></footer></form></dialog>
+      <dialog id="dialogo-pin" class="membro-detalhes__dialogo" aria-labelledby="titulo-novo-pin"><form id="formulario-pin" class="membro-detalhes__formulario" novalidate><h2 id="titulo-novo-pin">Redefinir PIN</h2><label for="campo-novo-pin">Novo PIN de quatro dígitos <span class="membro-detalhes__obrigatorio" aria-hidden="true">*</span></label><input id="campo-novo-pin" inputmode="numeric" maxlength="4" required><p id="erro-novo-pin" class="membro-detalhes__erro"></p><footer><button id="cancelar-pin" type="button">Cancelar</button><button type="submit">Salvar PIN</button></footer></form></dialog>
     </main><script type="module" src="./membro-detalhes.ts"></script>
   </body>
 </html>
