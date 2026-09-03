@@ -1,12 +1,10 @@
 import { listarAtividades } from '../../../repositorios/repositorio-atividades';
-import { listarKits } from '../../../repositorios/repositorio-kits';
 import { listarManutencoes } from '../../../repositorios/repositorio-manutencoes';
 import { listarMateriais, buscarMaterialPorId } from '../../../repositorios/repositorio-materiais';
 import { listarMovimentacoes } from '../../../repositorios/repositorio-movimentacoes';
 import { listarNecessidades } from '../../../repositorios/repositorio-necessidades';
 import { buscarUsuarioPorId, listarUsuarios } from '../../../repositorios/repositorio-usuarios';
 import { calcularQuantidadeDisponivel } from '../../../servicos/servico-disponibilidade';
-import { calcularResumoKit } from '../../../servicos/servico-kits';
 import { inicializarPaginaAdministrativa } from '../../../servicos/servico-pagina-administrativa';
 import { formatarDataHora } from '../../../utilitarios/formatador-data';
 import { textoSituacao } from '../../../utilitarios/criador-html';
@@ -14,7 +12,6 @@ import { textoSituacao } from '../../../utilitarios/criador-html';
 function renderizarIndicadores(): void {
   const usuarios = listarUsuarios();
   const materiais = listarMateriais();
-  const kits = listarKits();
   const atividades = listarAtividades();
   const manutencoes = listarManutencoes();
   const necessidades = listarNecessidades();
@@ -24,7 +21,6 @@ function renderizarIndicadores(): void {
     ['Jovens ativos', usuarios.filter((usuario) => usuario.situacao === 'ativo' && usuario.perfil === 'jovem_beneficiario').length],
     ['Materiais cadastrados', materiais.filter((material) => material.estado !== 'baixado').length],
     ['Unidades disponíveis', materiais.reduce((total, material) => total + calcularQuantidadeDisponivel(material.id), 0)],
-    ['Kits incompletos', kits.filter((kit) => !calcularResumoKit(kit).completo).length],
     ['Atividades futuras', atividades.filter((atividade) => new Date(atividade.dataSaida) >= hoje && !['concluida', 'cancelada'].includes(atividade.situacao)).length],
     ['Materiais em manutenção', manutencoes.filter((manutencao) => ['pendente', 'em_andamento'].includes(manutencao.situacao)).length],
     ['Necessidades abertas', necessidades.filter((necessidade) => !['recebida', 'cancelada'].includes(necessidade.situacao)).length]
@@ -45,7 +41,6 @@ function renderizarIndicadores(): void {
 function renderizarAlertas(): void {
   const textos: string[] = [];
   listarMateriais().filter((material) => material.estado === 'aguardando_secagem').forEach((material) => textos.push(`${material.nome} aguarda secagem.`));
-  listarKits().filter((kit) => !calcularResumoKit(kit).completo).forEach((kit) => textos.push(`${kit.nome} está incompleto.`));
   listarAtividades().filter((atividade) => atividade.situacao === 'planejamento').forEach((atividade) => textos.push(`${atividade.nome} ainda possui preparação pendente.`));
   listarManutencoes().filter((manutencao) => manutencao.situacao === 'pendente').forEach((manutencao) => textos.push(`Manutenção pendente: ${buscarMaterialPorId(manutencao.materialId)?.nome ?? 'material não encontrado'}.`));
   listarNecessidades().filter((necessidade) => necessidade.prioridade === 'urgente' && !['recebida', 'cancelada'].includes(necessidade.situacao)).forEach((necessidade) => textos.push(`Compra urgente: ${necessidade.nomeMaterial}.`));

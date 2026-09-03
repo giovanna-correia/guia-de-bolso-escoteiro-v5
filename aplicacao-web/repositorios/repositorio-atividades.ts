@@ -27,7 +27,8 @@ export function atualizarAtividade(atividadeAtualizada: Atividade): boolean {
 }
 
 export function listarItensAtividades(): ItemAtividade[] {
-  return lerArmazenamento<ItemAtividade[]>(CHAVE_ITENS_ATIVIDADES, []);
+  return lerArmazenamento<ItemAtividade[]>(CHAVE_ITENS_ATIVIDADES, [])
+    .filter((item) => typeof item.materialId === 'string' && item.materialId.length > 0);
 }
 
 export function listarItensDaAtividade(atividadeId: string): ItemAtividade[] {

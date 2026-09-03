@@ -5,13 +5,9 @@ import type { CategoriaMaterial } from '../modelos/categoria-material';
 import type { Localizacao } from '../modelos/localizacao';
 import type { Material } from '../modelos/material';
 import type { ComponenteMaterial } from '../modelos/componente-material';
-import type { Kit } from '../modelos/kit';
-import type { ItemKit } from '../modelos/item-kit';
 import type { Atividade } from '../modelos/atividade';
 import type { ItemAtividade } from '../modelos/item-atividade';
 import type { Movimentacao } from '../modelos/movimentacao';
-import type { Conferencia } from '../modelos/conferencia';
-import type { ItemConferencia } from '../modelos/item-conferencia';
 import type { Manutencao } from '../modelos/manutencao';
 import type { NecessidadeCompra } from '../modelos/necessidade-compra';
 
@@ -69,7 +65,7 @@ export const localizacoesIniciais: Localizacao[] = [
 export const materiaisIniciais: Material[] = [
   { id: 'material-barraca-iglu', codigoPatrimonio: 'BAR-001', nome: 'Barraca Iglu 4 pessoas', descricao: 'Barracas de uso geral da tropa.', tipo: 'duravel', categoriaId: 'categoria-barracas', secaoId: 'secao-escoteira', localizacaoId: 'local-deposito', quantidadeTotal: 4, quantidadeMinimaDesejada: 6, unidadeMedida: 'unidade', estado: 'bom', origem: 'compra', valorUnitario: 620, dataAquisicao: dataRelativa(-400), controlaComponentes: true, capacidadePessoas: 4, comprimentoMetros: null, restricaoUso: null, observacoes: 'Conferir estacas antes de cada saída.', caminhoImagem: null, dataCadastro: dataRelativa(-400) },
   { id: 'material-barraca-canadense', codigoPatrimonio: 'BAR-002', nome: 'Barraca Canadense 6 pessoas', descricao: 'Barracas maiores para acampamentos longos.', tipo: 'duravel', categoriaId: 'categoria-barracas', secaoId: null, localizacaoId: 'local-deposito', quantidadeTotal: 2, quantidadeMinimaDesejada: 3, unidadeMedida: 'unidade', estado: 'aguardando_secagem', origem: 'doacao', valorUnitario: 850, dataAquisicao: dataRelativa(-600), controlaComponentes: true, capacidadePessoas: 6, comprimentoMetros: null, restricaoUso: null, observacoes: 'Uma unidade retornou molhada.', caminhoImagem: null, dataCadastro: dataRelativa(-600) },
-  { id: 'material-cozinha', codigoPatrimonio: 'COZ-001', nome: 'Conjunto de cozinha de campo', descricao: 'Panelas, conchas e utensílios para patrulha.', tipo: 'duravel', categoriaId: 'categoria-cozinha', secaoId: 'secao-escoteira', localizacaoId: 'local-cozinha', quantidadeTotal: 2, quantidadeMinimaDesejada: 2, unidadeMedida: 'kit', estado: 'incompleto', origem: 'compra', valorUnitario: 310, dataAquisicao: dataRelativa(-280), controlaComponentes: false, capacidadePessoas: null, comprimentoMetros: null, restricaoUso: null, observacoes: 'Um conjunto está sem concha.', caminhoImagem: null, dataCadastro: dataRelativa(-280) },
+  { id: 'material-cozinha', codigoPatrimonio: 'COZ-001', nome: 'Conjunto de cozinha de campo', descricao: 'Panelas, conchas e utensílios para patrulha.', tipo: 'duravel', categoriaId: 'categoria-cozinha', secaoId: 'secao-escoteira', localizacaoId: 'local-cozinha', quantidadeTotal: 2, quantidadeMinimaDesejada: 2, unidadeMedida: 'conjunto', estado: 'incompleto', origem: 'compra', valorUnitario: 310, dataAquisicao: dataRelativa(-280), controlaComponentes: false, capacidadePessoas: null, comprimentoMetros: null, restricaoUso: null, observacoes: 'Um conjunto está sem concha.', caminhoImagem: null, dataCadastro: dataRelativa(-280) },
   { id: 'material-cordas', codigoPatrimonio: 'PIO-001', nome: 'Corda de pioneiria', descricao: 'Cordas sisal para construções.', tipo: 'duravel', categoriaId: 'categoria-cordas', secaoId: 'secao-escoteira', localizacaoId: 'local-armario-tropa', quantidadeTotal: 12, quantidadeMinimaDesejada: 10, unidadeMedida: 'rolo', estado: 'bom', origem: 'emenda', valorUnitario: 95, dataAquisicao: dataRelativa(-150), controlaComponentes: false, capacidadePessoas: null, comprimentoMetros: 20, restricaoUso: null, observacoes: 'Manter secas e enroladas.', caminhoImagem: null, dataCadastro: dataRelativa(-150) },
   { id: 'material-facao', codigoPatrimonio: 'FER-001', nome: 'Facão de campo', descricao: 'Ferramenta para manejo supervisionado.', tipo: 'duravel', categoriaId: 'categoria-ferramentas', secaoId: null, localizacaoId: 'local-deposito', quantidadeTotal: 4, quantidadeMinimaDesejada: 4, unidadeMedida: 'unidade', estado: 'em_manutencao', origem: 'compra', valorUnitario: 120, dataAquisicao: dataRelativa(-500), controlaComponentes: false, capacidadePessoas: null, comprimentoMetros: null, restricaoUso: 'Uso somente com autorização e supervisão de escotista.', observacoes: 'Um facão aguarda troca do cabo.', caminhoImagem: null, dataCadastro: dataRelativa(-500) },
   { id: 'material-lanternas', codigoPatrimonio: 'ELE-001', nome: 'Lanterna recarregável', descricao: 'Lanternas de apoio noturno.', tipo: 'duravel', categoriaId: 'categoria-eletronicos', secaoId: null, localizacaoId: 'local-prateleira-a', quantidadeTotal: 8, quantidadeMinimaDesejada: 12, unidadeMedida: 'unidade', estado: 'danificado', origem: 'doacao', valorUnitario: 75, dataAquisicao: dataRelativa(-200), controlaComponentes: false, capacidadePessoas: null, comprimentoMetros: null, restricaoUso: null, observacoes: 'Duas unidades não mantêm carga.', caminhoImagem: null, dataCadastro: dataRelativa(-200) },
@@ -86,21 +82,6 @@ export const componentesIniciais: ComponenteMaterial[] = [
   { id: 'componente-5', materialId: 'material-barraca-iglu', nome: 'Bolsa de transporte', quantidadeEsperada: 4, quantidadeEncontrada: 4, estado: 'bom', observacoes: '' }
 ];
 
-export const kitsIniciais: Kit[] = [
-  { id: 'kit-caixa-lobo', nome: 'Caixa de Patrulha Lobo', tipo: 'caixa_patrulha', secaoId: 'secao-escoteira', patrulhaId: 'patrulha-lobo', situacao: 'disponivel', observacoes: 'Materiais básicos da Patrulha Lobo.', dataCadastro: dataRelativa(-100) },
-  { id: 'kit-cozinha-tropa', nome: 'Kit de Cozinha da Tropa Escoteira', tipo: 'cozinha', secaoId: 'secao-escoteira', patrulhaId: null, situacao: 'incompleto', observacoes: 'Aguardando reposição do conjunto incompleto.', dataCadastro: dataRelativa(-95) },
-  { id: 'kit-pioneiria', nome: 'Kit de Pioneiria', tipo: 'pioneiria', secaoId: 'secao-escoteira', patrulhaId: null, situacao: 'disponivel', observacoes: 'Cordas e ferramentas para construções.', dataCadastro: dataRelativa(-90) }
-];
-
-export const itensKitsIniciais: ItemKit[] = [
-  { id: 'item-kit-1', kitId: 'kit-caixa-lobo', materialId: 'material-lanternas', quantidadeNecessaria: 1 },
-  { id: 'item-kit-2', kitId: 'kit-caixa-lobo', materialId: 'material-primeiros-socorros', quantidadeNecessaria: 1 },
-  { id: 'item-kit-3', kitId: 'kit-cozinha-tropa', materialId: 'material-cozinha', quantidadeNecessaria: 2 },
-  { id: 'item-kit-4', kitId: 'kit-cozinha-tropa', materialId: 'material-caixas', quantidadeNecessaria: 4 },
-  { id: 'item-kit-5', kitId: 'kit-pioneiria', materialId: 'material-cordas', quantidadeNecessaria: 8 },
-  { id: 'item-kit-6', kitId: 'kit-pioneiria', materialId: 'material-facao', quantidadeNecessaria: 1 }
-];
-
 export const atividadesIniciais: Atividade[] = [
   { id: 'atividade-planejamento', nome: 'Acampamento de Primavera', tipo: 'acampamento', local: 'Campo Escola', dataSaida: dataRelativa(30), dataRetorno: dataRelativa(32), secaoId: 'secao-escoteira', quantidadeJovens: 24, quantidadeAdultos: 5, responsavelId: 'usuario-escotista', situacao: 'planejamento', observacoes: 'Planejamento inicial de carga.', dataCadastro: dataRelativa(-5) },
   { id: 'atividade-reservada', nome: 'Jornada da Tropa Sênior', tipo: 'jornada', local: 'Trilha do Ipê', dataSaida: dataRelativa(14), dataRetorno: dataRelativa(15), secaoId: 'secao-senior', quantidadeJovens: 12, quantidadeAdultos: 3, responsavelId: 'usuario-escotista', situacao: 'reservada', observacoes: 'Materiais já reservados.', dataCadastro: dataRelativa(-10) },
@@ -108,23 +89,15 @@ export const atividadesIniciais: Atividade[] = [
 ];
 
 export const itensAtividadesIniciais: ItemAtividade[] = [
-  { id: 'item-atividade-1', atividadeId: 'atividade-planejamento', materialId: 'material-barraca-iglu', kitId: null, quantidadeSolicitada: 4, quantidadeRetirada: 0, quantidadeDevolvida: 0, situacao: 'planejado' },
-  { id: 'item-atividade-2', atividadeId: 'atividade-reservada', materialId: 'material-lanternas', kitId: null, quantidadeSolicitada: 4, quantidadeRetirada: 0, quantidadeDevolvida: 0, situacao: 'reservado' },
-  { id: 'item-atividade-3', atividadeId: 'atividade-devolucao', materialId: 'material-barraca-canadense', kitId: null, quantidadeSolicitada: 1, quantidadeRetirada: 1, quantidadeDevolvida: 0, situacao: 'retirado' }
+  { id: 'item-atividade-1', atividadeId: 'atividade-planejamento', materialId: 'material-barraca-iglu', quantidadeSolicitada: 4, quantidadeRetirada: 0, quantidadeDevolvida: 0, situacao: 'planejado' },
+  { id: 'item-atividade-2', atividadeId: 'atividade-reservada', materialId: 'material-lanternas', quantidadeSolicitada: 4, quantidadeRetirada: 0, quantidadeDevolvida: 0, situacao: 'reservado' },
+  { id: 'item-atividade-3', atividadeId: 'atividade-devolucao', materialId: 'material-barraca-canadense', quantidadeSolicitada: 1, quantidadeRetirada: 1, quantidadeDevolvida: 0, situacao: 'retirado' }
 ];
 
 export const movimentacoesIniciais: Movimentacao[] = [
   { id: 'movimentacao-1', materialId: 'material-lanternas', atividadeId: 'atividade-reservada', tipo: 'reserva', quantidade: 4, responsavelId: 'usuario-escotista', data: dataRelativa(-2), estadoRegistrado: 'danificado', observacoes: 'Reserva para a Jornada.' },
   { id: 'movimentacao-2', materialId: 'material-barraca-canadense', atividadeId: 'atividade-devolucao', tipo: 'retirada', quantidade: 1, responsavelId: 'usuario-escotista', data: dataRelativa(-3), estadoRegistrado: 'bom', observacoes: 'Retirada para acantonamento.' }
 ];
-
-export const conferenciasIniciais: Conferencia[] = [
-  { id: 'conferencia-demo', nome: 'Conferência do Depósito', tipo: 'localizacao', secaoId: null, localizacaoId: 'local-deposito', kitId: null, responsavelId: 'usuario-escotista', dataInicio: dataRelativa(-1), dataFim: null, situacao: 'em_andamento', observacoes: 'Conferência demonstrativa salva parcialmente.' }
-];
-
-export const itensConferenciasIniciais: ItemConferencia[] = materiaisIniciais
-  .filter((material) => material.localizacaoId === 'local-deposito')
-  .map((material, indice) => ({ id: `item-conferencia-demo-${indice + 1}`, conferenciaId: 'conferencia-demo', materialId: material.id, quantidadeEsperada: material.quantidadeTotal, quantidadeEncontrada: indice === 0 ? material.quantidadeTotal : 0, estadoEncontrado: indice === 0 ? material.estado : '', foiLocalizado: indice === 0, observacoes: '' }));
 
 export const manutencoesIniciais: Manutencao[] = [
   { id: 'manutencao-secagem', materialId: 'material-barraca-canadense', atividadeId: 'atividade-devolucao', tipo: 'secagem', descricaoProblema: 'Barraca devolvida molhada e precisa secar antes do armazenamento.', responsavelId: 'usuario-escotista', dataAbertura: dataRelativa(-1), dataConclusao: null, custoEstimado: null, custoReal: null, situacao: 'pendente', resultado: null, observacoes: 'Abrir e ventilar na sede.' },

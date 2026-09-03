@@ -8,7 +8,7 @@ A implementação original permanece na raiz do projeto. Todo o trabalho novo es
 
 ## Contexto escoteiro
 
-O jovem beneficiário encontra um guia de consulta para nós, amarras, Leis Escoteiras, checklist de acampamento, Código Morse e bússola. O escotista recebe uma área administrativa para acompanhar acessos, patrimônio, kits de campo, atividades, conferências, manutenção e necessidades de compra, além de poder abrir o mesmo guia.
+O jovem beneficiário encontra um guia de consulta para nós, amarras, Leis Escoteiras, checklist de acampamento, Código Morse e bússola. O escotista recebe uma área administrativa para acompanhar acessos, patrimônio, atividades, manutenção e necessidades de compra, além de poder abrir o mesmo guia.
 
 ## Tecnologias
 
@@ -31,7 +31,7 @@ aplicacao-web/
 ├── paginas/
 │   ├── autenticacao/    # login
 │   ├── jovem/           # nove páginas do Guia de Bolso
-│   └── administracao/   # vinte e duas páginas administrativas
+│   └── administracao/   # dezesseis páginas administrativas
 ├── publico/recursos/    # imagens, ícones e futura inclusão de fontes
 ├── repositorios/        # acesso ao armazenamento por entidade
 ├── servicos/            # autenticação e regras de negócio
@@ -105,9 +105,7 @@ Os dados ficam somente no navegador ou aparelho atual. Um membro cadastrado em u
 - painel geral com indicadores, alertas, ações rápidas e movimentações;
 - membros e acessos, incluindo edição, ativação, desativação e redefinição de PIN;
 - materiais, componentes de barraca, disponibilidade, histórico e baixa;
-- kits e cálculo de completude;
-- atividades, carga de materiais e kits, reserva, retirada, devolução e inspeção;
-- conferências gerais ou por seção, localização e kit, com salvamento parcial e resultado;
+- atividades, carga de materiais, reserva, retirada, devolução e inspeção;
 - limpeza e manutenção, custos, conclusão, liberação ou baixa;
 - necessidades de compra, cálculos, prioridades e recebimento com entrada em estoque.
 
@@ -155,4 +153,3 @@ Os nomes esperados continuam registrados nos dados. Foram usados placeholders SV
 ## Validação da Fase 1
 
 Foram validados a tipagem, o build multipágina, as rotas protegidas, os dois perfis, a persistência e os principais fluxos de cadastro e movimentação. A responsividade foi exercitada em `360 × 800`, `390 × 844`, `412 × 915`, `768 × 1024` e `1366 × 768`, sem rolagem horizontal nas páginas testadas.
-

@@ -7,9 +7,7 @@ const itensMenu = [
   ['Painel Geral', 'paginas/administracao/painel/index.html'],
   ['Membros e Acessos', 'paginas/administracao/membros-listagem/index.html'],
   ['Materiais e Equipamentos', 'paginas/administracao/materiais-listagem/index.html'],
-  ['Kits de Campo', 'paginas/administracao/kits-listagem/index.html'],
   ['Atividades', 'paginas/administracao/atividades-listagem/index.html'],
-  ['Conferências', 'paginas/administracao/conferencias-listagem/index.html'],
   ['Limpeza e Manutenção', 'paginas/administracao/manutencoes-listagem/index.html'],
   ['Necessidades e Compras', 'paginas/administracao/necessidades-listagem/index.html'],
   ['Guia de Bolso', 'paginas/jovem/inicio/index.html']

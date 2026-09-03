@@ -3,8 +3,7 @@ export type SituacaoItemAtividade = 'planejado' | 'reservado' | 'retirado' | 'de
 export interface ItemAtividade {
   id: string;
   atividadeId: string;
-  materialId: string | null;
-  kitId: string | null;
+  materialId: string;
   quantidadeSolicitada: number;
   quantidadeRetirada: number;
   quantidadeDevolvida: number;

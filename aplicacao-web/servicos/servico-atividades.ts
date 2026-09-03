@@ -2,7 +2,6 @@ import type { Atividade } from '../modelos/atividade';
 import type { ItemAtividade } from '../modelos/item-atividade';
 import type { Movimentacao } from '../modelos/movimentacao';
 import { atualizarAtividade, listarItensDaAtividade, salvarItensDaAtividade } from '../repositorios/repositorio-atividades';
-import { listarItensDoKit } from '../repositorios/repositorio-kits';
 import { adicionarMovimentacao } from '../repositorios/repositorio-movimentacoes';
 import { buscarMaterialPorId } from '../repositorios/repositorio-materiais';
 import { gerarIdentificador } from '../utilitarios/gerador-identificador';
@@ -17,12 +16,7 @@ export interface FaltaMaterial {
 
 function expandirItem(item: ItemAtividade, usarQuantidadeRetirada = false): Array<{ materialId: string; quantidade: number }> {
   const quantidadeBase = usarQuantidadeRetirada ? item.quantidadeRetirada : item.quantidadeSolicitada;
-  if (item.materialId) return [{ materialId: item.materialId, quantidade: quantidadeBase }];
-  if (!item.kitId) return [];
-  return listarItensDoKit(item.kitId).map((itemKit) => ({
-    materialId: itemKit.materialId,
-    quantidade: itemKit.quantidadeNecessaria * quantidadeBase
-  }));
+  return [{ materialId: item.materialId, quantidade: quantidadeBase }];
 }
 
 export function calcularPercentualPreparacao(atividade: Atividade): number {
