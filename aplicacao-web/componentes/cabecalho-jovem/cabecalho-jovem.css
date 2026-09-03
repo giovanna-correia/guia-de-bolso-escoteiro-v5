@@ -1,4 +1,5 @@
-.cabecalho-jovem__barra { position: sticky; z-index: 30; top: 0; display: flex; align-items: center; min-height: calc(64px + env(safe-area-inset-top)); padding: env(safe-area-inset-top) 1rem 0; color: var(--cor-superficie); background: var(--cor-primaria); box-shadow: var(--sombra-suave); }
+#cabecalho-jovem { min-height: calc(64px + env(safe-area-inset-top)); }
+.cabecalho-jovem__barra { position: fixed; z-index: 30; inset: 0 0 auto; display: flex; align-items: center; min-height: calc(64px + env(safe-area-inset-top)); padding: env(safe-area-inset-top) 1rem 0; color: var(--cor-superficie); background: var(--cor-primaria); box-shadow: var(--sombra-suave); }
 .cabecalho-jovem__botao-menu, .cabecalho-jovem__fechar, .cabecalho-jovem__fundo { border: 0; cursor: pointer; }
 .cabecalho-jovem__botao-menu { width: 48px; height: 48px; color: var(--cor-superficie); background: transparent; border-radius: var(--raio-pequeno); font-size: 1.65rem; }
 .cabecalho-jovem__titulo { margin-left: 0.5rem; font: 700 1.15rem var(--fonte-titulo); }

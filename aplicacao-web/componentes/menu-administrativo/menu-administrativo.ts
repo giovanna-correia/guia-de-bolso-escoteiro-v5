@@ -1,4 +1,5 @@
 import { encerrarSessao } from '../../servicos/servico-sessao';
+import type { Usuario } from '../../modelos/usuario';
 import { restaurarDadosDemonstrativos } from '../../servicos/servico-dados-demonstrativos';
 import { obterCaminhoRaiz } from '../../utilitarios/manipulador-url';
 import { solicitarConfirmacao } from '../modal-confirmacao/modal-confirmacao';
@@ -9,11 +10,10 @@ const itensMenu = [
   ['Materiais e Equipamentos', 'paginas/administracao/materiais-listagem/index.html'],
   ['Atividades', 'paginas/administracao/atividades-listagem/index.html'],
   ['Limpeza e Manutenção', 'paginas/administracao/manutencoes-listagem/index.html'],
-  ['Necessidades e Compras', 'paginas/administracao/necessidades-listagem/index.html'],
-  ['Guia de Bolso', 'paginas/jovem/inicio/index.html']
+  ['Necessidades e Compras', 'paginas/administracao/necessidades-listagem/index.html']
 ];
 
-export function montarMenuAdministrativo(): void {
+export function montarMenuAdministrativo(usuario: Usuario): void {
   const hospedeiro = document.querySelector<HTMLElement>('#menu-administrativo');
   if (!hospedeiro) return;
   const raiz = obterCaminhoRaiz();
@@ -23,15 +23,15 @@ export function montarMenuAdministrativo(): void {
   gaveta.setAttribute('aria-hidden', 'true');
   const topo = document.createElement('div');
   topo.className = 'menu-administrativo__topo';
-  const marca = document.createElement('strong');
-  marca.className = 'menu-administrativo__marca';
-  marca.textContent = 'Guia Escoteiro';
   const fechar = document.createElement('button');
   fechar.type = 'button';
   fechar.className = 'menu-administrativo__fechar';
   fechar.setAttribute('aria-label', 'Fechar menu');
   fechar.textContent = '×';
-  topo.append(marca, fechar);
+  topo.append(fechar);
+  const identificacao = document.createElement('p');
+  identificacao.className = 'menu-administrativo__usuario';
+  identificacao.textContent = usuario.nomeCompleto;
   const navegacao = document.createElement('nav');
   navegacao.className = 'menu-administrativo__navegacao';
   navegacao.setAttribute('aria-label', 'Administração');
@@ -43,6 +43,11 @@ export function montarMenuAdministrativo(): void {
     link.textContent = rotulo;
     navegacao.append(link);
   });
+  const guia = document.createElement('a');
+  guia.className = 'menu-administrativo__link menu-administrativo__link--guia';
+  guia.href = `${raiz}paginas/jovem/inicio/index.html`;
+  guia.textContent = 'Ir para o guia de bolso';
+  navegacao.append(guia);
   const restaurar = document.createElement('button');
   restaurar.type = 'button';
   restaurar.className = 'menu-administrativo__acao';
@@ -51,7 +56,7 @@ export function montarMenuAdministrativo(): void {
   sair.type = 'button';
   sair.className = 'menu-administrativo__acao menu-administrativo__acao--sair';
   sair.textContent = 'Sair';
-  gaveta.append(topo, navegacao, restaurar, sair);
+  gaveta.append(topo, identificacao, navegacao, restaurar, sair);
   const fundo = document.createElement('button');
   fundo.type = 'button';
   fundo.className = 'menu-administrativo__fundo';

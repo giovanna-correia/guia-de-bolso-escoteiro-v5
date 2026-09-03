@@ -8,7 +8,7 @@ export function inicializarPaginaAdministrativa(titulo: string): Usuario | null 
   inicializarDadosDemonstrativos();
   const usuario = exigirPerfilEscotista();
   if (!usuario) return null;
-  montarMenuAdministrativo();
+  montarMenuAdministrativo(usuario);
   montarCabecalhoAdministrativo(titulo, usuario);
   return usuario;
 }
