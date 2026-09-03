@@ -2,15 +2,18 @@ import { montarCabecalhoJovem } from '../../../componentes/cabecalho-jovem/cabec
 import { amarras, textoIntroducaoAmarras, type AmarraEscoteira } from '../../../dados/dados-amarras';
 import { exigirAutenticacao } from '../../../servicos/servico-autorizacao';
 import { inicializarDadosDemonstrativos } from '../../../servicos/servico-dados-demonstrativos';
+import { obterCaminhoRaiz } from '../../../utilitarios/manipulador-url';
 
 function criarCartao(amarra: AmarraEscoteira): HTMLElement {
   const artigo = document.createElement('article');
   artigo.className = 'amarras__cartao';
   const visual = document.createElement('div');
   visual.className = 'amarras__visual';
-  const recurso = document.createElement('span');
-  recurso.textContent = `Miniatura original pendente: ${amarra.caminhoImagemEsperado}`;
-  visual.append(recurso);
+  const imagem = document.createElement('img');
+  imagem.className = 'amarras__imagem';
+  imagem.src = `${obterCaminhoRaiz()}recursos/imagens/amarras/${amarra.caminhoImagemEsperado}`;
+  imagem.alt = `Demonstração da ${amarra.nome}`;
+  visual.append(imagem);
   const conteudo = document.createElement('div');
   conteudo.className = 'amarras__conteudo';
   const nome = document.createElement('h2');

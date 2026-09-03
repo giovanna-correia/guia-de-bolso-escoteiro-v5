@@ -5,6 +5,7 @@ body { min-height: 100dvh; margin: 0; color: var(--cor-texto-principal); backgro
 .login__apresentacao { max-width: 38rem; margin: 0 auto; padding: 1rem; }
 .login__marca { margin: 0 0 0.75rem; color: var(--cor-primaria); font-size: 0.78rem; font-weight: 700; letter-spacing: 0.12em; }
 .login__titulo { margin: 0; color: var(--cor-primaria-escura); font: 700 clamp(2rem, 8vw, 3.4rem)/1.02 var(--fonte-titulo); }
+.login__imagem { width: min(100%, 24rem); max-height: 16rem; display: block; margin: 1.25rem auto 0; object-fit: contain; }
 .login__descricao { margin: 1rem 0 0; color: var(--cor-texto-secundario); line-height: 1.6; }
 .login__cartao { width: 100%; max-width: 31rem; margin: 0 auto; padding: 1.3rem; background: var(--cor-superficie); border: 1px solid var(--cor-borda); border-radius: var(--raio-grande); box-shadow: var(--sombra-media); }
 .login__subtitulo { margin: 0; font: 700 1.8rem var(--fonte-titulo); }

@@ -8,8 +8,10 @@ body { min-height: 100dvh; margin: 0; color: var(--cor-texto-principal); backgro
 .nos-listagem__introducao { margin: 0; white-space: pre-line; line-height: 1.65; text-align: left; }
 .nos-listagem__subtitulo { margin: 1.4rem 0 0.8rem; font: 700 1.55rem var(--fonte-titulo); }
 .nos-listagem__grade, .nos-listagem__lista { display: grid; gap: 0.8rem; }
-.nos-listagem__cartao { min-height: 145px; display: grid; align-content: end; padding: 1rem; color: var(--cor-superficie); background: linear-gradient(145deg, var(--cor-primaria), var(--cor-primaria-escura)); border-radius: var(--raio-grande); box-shadow: var(--sombra-suave); text-decoration: none; }
-.nos-listagem__cartao small { color: var(--cor-terciaria); }
+.nos-listagem__cartao { min-height: 145px; display: grid; overflow: hidden; color: var(--cor-primaria-escura); background: var(--cor-superficie); border-radius: var(--raio-grande); box-shadow: var(--sombra-suave); text-decoration: none; }
+.nos-listagem__imagem { width: 100%; height: 165px; display: block; object-fit: contain; background: var(--cor-fundo); }
+.nos-listagem__conteudo { display: grid; padding: 0.85rem 1rem 1rem; }
+.nos-listagem__cartao small { color: var(--cor-texto-secundario); }
 .nos-listagem__cartao strong { margin-top: 0.35rem; font: 700 1.35rem var(--fonte-titulo); }
 .nos-listagem__link { min-height: 58px; display: flex; align-items: center; justify-content: space-between; padding: 0.8rem 1rem; color: var(--cor-primaria-escura); background: var(--cor-superficie); border: 1px solid var(--cor-borda); border-radius: var(--raio-medio); font-weight: 700; text-decoration: none; }
 .nos-listagem__link::after { content: "Ver detalhes ›"; color: var(--cor-texto-secundario); font-size: 0.75rem; }
